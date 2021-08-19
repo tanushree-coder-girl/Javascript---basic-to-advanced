@@ -1,10 +1,5 @@
--------------BOOTSTRAP 4/5 From Beginer To Advanced----------
+-------------Javascript and ES6 From Beginer To Advanced----------
 
 1. Introduction 
-    BOOTSTRAP is a most popoular css framework.
-    It has Separate componetns / classes / grid system.
-    world’s most popular framework for building responsive, mobile-first sites, with jsDelivr and a template starter page.
-
- Reference https://getbootstrap.com/docs/5.0/getting-started/introduction/
 
 ---------------------------------------------------End--------------------------------------------------------------
