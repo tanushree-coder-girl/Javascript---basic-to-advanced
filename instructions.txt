@@ -1,5 +1,104 @@
 -------------Javascript and ES6 From Beginer To Advanced----------
 
 1. Introduction 
+    Javascript is the most demanded programming language for the web. It improves the user experience of web pages by converting it from a static page into interactive one.
+    Javascript adds behaviour to web pages.
+
+2. Ways to write
+    Internal => before body tag start script tag and write js in it for example
+    <script>
+        console.log('hello world')
+    </script>
+
+    External => create separate file for example index.js and add a script tag link before body end tag 
+                <script src="index.js"></script>
+
+3. JavaScript Comments
+    //I am single line comment in javascript 
+
+    /*
+    i am multiline comments
+    in 
+    javascript
+    */
+
+4. Printing In Console
+    console.log('Hello Welcome in Javascript course')
+
+5. Values And Variables in Javascript
+    There are 3 ways to declare a JavaScript variable:
+    var
+    let                                                 // It Coments in ES6 Part
+    const                                               // It comes In ES6 Part
+
+    syntax :
+    keyword variable_name = value;
+    var name = "my name is tanu";
+
+    some common rules for declaring Variables are:
+        1: Naming Conventions must be in camelCase. 
+            example=> var userName = "nk sharma";
+
+        2: Names are case sensitive 
+            example Name name both are different varialbles.
+        
+        3. Cannot use Reserved words which already taken by javascript
+            example var var = "cannot use var as variable name bcoz is javascript reserved keyword "
+
+        4. Names must begin with a letter, underscore, dollar sign, 
+
+        5.Names cannot not begin with number
+
+        You can declare many variables in one statement.
+        Start the statement with var and separate the variables by comma:
+            example= var name="RK", surname="sharma", age="20";
+
+    Important Note: We will discuss about let and const later in ES6 part on line no: 
+
+6. Data Types in Javascrpit
+    Six Data Types that Are primitives
+    
+    1. Undefined
+        Undefined data types means declare a variable but no value. we can put value letter when we need.
+        var x;
+    2. String
+        var name = "my name is ---";
+    3. Number
+        var age = 20;
+    4. Booleans
+        var is_available = true;    var is_available = false;
+    5. NULL
+        var nullvariable = null;
+    6. Bigint
+    7. Symbol
+    8. nan
+        nan or not a number is a property of global object in other words it is a varialbe in global scope. The initial Value of Nan is not a number. 
+    
+    Note : object and arrays are also called data types
+    for check data type of a varialbe use typeOf(varialbeName);
+
+7. Expressions And operator
+    10 + 5 = > This is Called An Expression
+    + is called Operator 
+    10 and 5 is called Opearands
+
+    Types Of Operators: 
+
+    1: Assignment Operator
+        assign opearor used to assign value assignment operator is = 
+        for example a = 20; //in this = assign value so = is called assignment operator
+
+    2: Arithmetic Operator
+        arithmetic operator means mathematical operations for example +, -, *, / etc
+        5 + 5;
+        5 - 5;
+        5 * 5;
+        5 % 5;
+
+    3: Comparision Operator
+    4. Logical Operator
+    5. String Operator
+    6. Conditional (Ternary) Operator
+
 
 ---------------------------------------------------End--------------------------------------------------------------
