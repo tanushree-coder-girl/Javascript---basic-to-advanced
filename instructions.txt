@@ -32,8 +32,54 @@
     const                                               // It comes In ES6 Part
 
     syntax :
-    keyword variable_name = value;
+    var variable_name = value;
     var name = "my name is tanu";
+    let name = "tanu";
+    const name = "tanu"
+
+    difference between var , let and const ----
+        var can Redeclared. it overwrites previous value with new value
+        let and const cannot be Redeclared. 
+        for example
+            var myAge = 18;
+            var myAge = 25;
+            console.log(myAge);   // it gives output 25 bcoz it overwrite var variable with new one.
+            let myAge2 = 12;
+            let myAge2 = 20;
+            console.log(myAge2);  //it gives an error bcoz myAge2 already been declared.
+
+            let and const variable provide Block Scope in JavaScript.
+            Variables declared inside a { } block cannot be accessed from outside the block:
+
+            for Example=>
+                function checkVariables() {
+                    let checkMe = "I am Outside";
+                    {
+                    let checkMe = "I am Inside"
+                    console.log(checkMe); 
+                    }
+                    console.log(checkMe);
+                }
+                checkVariables();     //output is I am Inside  I am Outside
+
+            Variables declared with the var keyword can NOT have block scope it Has Function Scope.
+            Variables declared inside a { } block can be accessed from outside the block.
+
+            for Example=>
+                function checkVariables() {
+                    var checkMe = "I am Outside";
+                    {
+                    var checkMe = "I am Inside"
+                    console.log(checkMe); 
+                    }
+                    console.log(checkMe);
+                }
+                checkVariables();   //output is I am Inside  I am inside
+
+            const is a constant variable so we can declare const variable only once we cannot change value later. 
+            for example
+            const PI = 3.147;
+            PI = 5; // gives error bcoz we cannot change const variable value.
 
     some common rules for declaring Variables are:
         1: Naming Conventions must be in camelCase. 
@@ -53,8 +99,6 @@
         Start the statement with var and separate the variables by comma:
             example= var name="RK", surname="sharma", age="20";
 
-    Important Note: We will discuss about let and const later in ES6 part on line no: 
-
 6. Data Types in Javascrpit
     Six Data Types that Are primitives
     
@@ -69,13 +113,14 @@
         var is_available = true;    var is_available = false;
     5. NULL
         var nullvariable = null;
-    6. Bigint
-    7. Symbol
+    6. Bigint  //Important Note: We will discuss about bigint in ES6 part on line no: 
+    7. Symbol // Important Note: We will discuss about symbol later in ES6 part on line no: 
     8. nan
         nan or not a number is a property of global object in other words it is a varialbe in global scope. The initial Value of Nan is not a number. 
-    
-    Note : object and arrays are also called data types
+
     for check data type of a varialbe use typeOf(varialbeName);
+    Note : object and arrays are also called data types
+    Important Note: We will discuss about array and objects later in array and object portion on line no: 
 
 7. Expressions And operator
     10 + 5 = > This is Called An Expression
@@ -90,15 +135,176 @@
 
     2: Arithmetic Operator
         arithmetic operator means mathematical operations for example +, -, *, / etc
-        5 + 5;
-        5 - 5;
-        5 * 5;
-        5 % 5;
+        5 + 5;      // Addition Operator ( + )
+        5 - 5;      // Substraction Operator ( - )
+        5 * 5;      // multiplication Operator ( * )
+        5 / 5;      // Divison Operator ( / )
+        5 % 4;      // Module Operator ( % )
+        5 ** 5      // Exponential Operator or power ( ** )   //It comes in ES6
+        a = ++a     // prefix increament
+        a = a++     //postfix increament
+        a = --a     // prefix decreament
+        a = a--     //postfix decreament
 
     3: Comparision Operator
-    4. Logical Operator
-    5. String Operator
-    6. Conditional (Ternary) Operator
+        5 == "5"      //Equal to operator check only values ( == )
+        5 === 5       //triple Equal to operator check values with data types ( === )
+        5 != 4        //Not Equal to Operator ( != )
+        10 > 5        //Greater THan operator ( > )
+        10 < 5        //Less THan operator ( < )
+        10 >= 5        //Greater THan or equal to operator ( >= )
+        10 <= 5        //Less THan or equal to operator ( =< )
 
+    4. Logical Operator
+        if(a>b && b<c)  //and operator ( && ) if both values true
+        if(a>b || b<c)  //or operator ( || ) if one values true then it return true
+        if(!a=b)        // logical not ( ! )
+
+    5. String Operator
+        "Hello," + "I am TAnu";               //for concation two string use concat operator ( + )
+
+    6. Conditional (Ternary) Operator
+        ternary operator means one liner if else 
+        condition ? true : false ;
+        5 == 5 ? true : false ;
+
+8. Control Statements And Loops
+    if else
+        if( true ){
+            console.log('this is true block');
+        }else{
+            console.log('this is false block')
+        }
+    
+    if elseif else
+        if( a > b ){
+            console.log('a is greater');
+        }else if(a < b ){
+            console.log('b is greater')
+        }else{
+            console.log('else block')
+        }
+
+    //Switch Case Statement
+        var a = 1;
+        switch(condition){
+            case 1:console.log('one');
+            break;
+            case 2:console.log('two');
+            break;
+            case 3:console.log('three');
+            break;
+            default: console.log('another number');
+        }
+    
+    //While loop
+        var num = 0;
+        while(num < 10){
+            console.log(num)
+            num ++;
+        }
+
+    //do while loop
+        var num = 0;
+        do {
+            console.log(num)
+            num ++;
+        }
+        while(num < 10)
+
+    difference b/w do while and while loop is that do while always run one time then check condition but while loop first check condition then executes code.
+
+    //For loop
+        for( i = 0; i < 10; i++){
+            console.log(i)
+        }
+
+    //conditional (ternary)
+    ((5 == 5) ? '5 is equal to 5': '5 is not equal to 5');
+
+    //For in loop
+        var dataArray = ["mohan","sohan","ravi"]
+        for (let elements in dataArray){
+            console.log(elements);          //for in loop return index number of array
+        }
+
+    //For of Loop
+        var dataArray = ["mohan","sohan","ravi"]
+        for (let elements of dataArray){
+            console.log(elements);          //for of loop return elements values of an array
+        }
+    //Foreach loop
+        var dataArray = ["mohan","sohan","ravi"]
+        dataArray.foreach(function(element, index, array, this){
+            console.log('my name is'+element+ 'and i am on index num'+index + 'belong to this array'+array);
+        });
+
+9. Debugger in Javascript
+    debugger is used to debugging code in console. use debugger in block function to check how its works.
+    debugger;
+    for example
+        for (let i = 0; i <= 10 ; i++) {
+            debugger;
+            console.log(i);
+        }
+
+10. Functions In Javascript
+
+    1. Function define 
+        function myFunction(){
+            console.log('hy')
+        }
+    2. Function Calling 
+        myFunction();
+
+    3. Function Parameters 
+        function myFunction(name, age){
+            console.log('my name is' + name + ' my age is ' + age)
+        }
+    4. Function Arguements 
+         myFunction('Ak', 20);
+
+    5. Function Expressions
+        var functionExpression = myFunction();
+
+    6. Return Keyword
+        function myFunction(name, age){
+           let msg = 'my name is ' + name + ' my age is ' + age ;
+           return msg;
+        }
+        var functionExpression = myFunction();
+        console.log(functionExpression);
+
+    7. Anonymous Functions 
+        var AnonymousFunction = function(){
+            return 5 + 5;
+        }
+        var AnFunc = AnonymousFunction();
+        console.log(AnFunc)
+
+    8. Arror Functions or Fat Arrow Functions   // It Coments in ES6 Part
+        let myArrowFunction = () => {
+            console.log('I am syntax of arrow function')
+        }
+        myArrowFunction();
+
+        //if only return single line statment then no need to use return keyword for example 
+        let myName = () => 'hello world';
+        console.log(myName());
+
+11. Arrays In Javascript
+    var myArray = ["apple", "ball", "cat", 10];
+    rules: array always start counting from 0 index number.
+        2. first element of array is called lower index or lower boundaries and last element of array is called upper index or upper boundaries.
+        
+    Some main topics we will study in array are-----
+    1. Traversal of an array 
+    2. Searching and filter in Array 
+    3. How to sort and compare and array 
+    4. How to insert /add /replace/ delete in array (CRUD)
+    5. Map(), reduce(), Filter() method in brief.
+
+    Ways to declare Array are- 
+    
 
 ---------------------------------------------------End--------------------------------------------------------------
