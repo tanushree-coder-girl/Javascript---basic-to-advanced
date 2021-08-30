@@ -163,6 +163,12 @@
     5. String Operator
         "Hello," + "I am TAnu";               //for concation two string use concat operator ( + )
 
+        Template Literals                       //It comes in ES6 part
+            template literal is used to use both variable with string for Example
+            var name = "tanu";
+            syntax : `  writter inside back quote and variable in hash with curly braces #{ variableNameHere } `;
+            console.log(` My Name is ${name} `);
+
     6. Conditional (Ternary) Operator
         ternary operator means one liner if else 
         condition ? true : false ;
@@ -292,6 +298,12 @@
         let myName = () => 'hello world';
         console.log(myName());
 
+    9. Default Arguements In Function               //It comes in ES6 part 
+        function defaultArugumentFunction (a , b = 5){
+            console.log(a + b)
+        }
+        defaultArugumentFunction( 4 );
+
 11. Arrays In Javascript
     var myArray = ["apple", "ball", "cat", 10];
     rules: array always start counting from 0 index number.
@@ -305,6 +317,48 @@
     5. Map(), reduce(), Filter() method in brief.
 
     Ways to declare Array are- 
+        var fruits = new Array;    //optional not compulsory to write this
+        var fruits = ['mango', 'apple', 'orange'];
+
+    for check length of an array : use 
+        console.log(arrayName.length);
+
+    1: Traversal Of An Array
+        arrayName[index];
+        arrayName[0];  //for knowing 1st element of an array
+        arrayName[arrayName.length - 1];  //for knowing last element of an array
+
+        for fetch all data in an array using for loops------
+
+            arrayName.forEach(function(element, index ,arr){
+                console.log(element)                // best way to fetch an array is foreach loop
+            })
+
+            arrayName.forEach((element, index ,arr) => {
+                console.log(element)        //return element value , element index number , belongs to array
+            })
+
+            for( i = 0; i < arrayName.length; i++){
+                    const element = arrayName[i];       //return only element value
+            }
+
+            for (elementId in arrayName){
+                console.log(elementId)   //return only index nmuber
+            }
+
+             for (element of arrayName){
+                console.log(element)   //return only element value
+            }
+
+    2: Searching And Filtering Of An Array
+    
+
+
+        
+
+
+            
+
     
 
 ---------------------------------------------------End--------------------------------------------------------------

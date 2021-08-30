@@ -75,6 +75,8 @@ console.log((5 == 5) && !(10 < 5)); //not oprator !
 
 console.log("tanu is a" + " " + "good girl"); //string concatination operator + 
 
+console.log(` hello the sum of 4 and 5 is ${4 + 5}`); //Template literals ES6 part
+
 console.log(5 > 10 ? '5 is greater than 10': '10 is greater than 5');//ternary operator
 
 //lets swap number 
@@ -182,6 +184,12 @@ console.log( mySum(4,5));
 let myName = () => 'hello world';
 console.log(myName());
 
+//Passing Default Argument In Function
+function defaultArugumentFunction (a , b = 5){
+    console.log(a ** b)
+}
+defaultArugumentFunction( 4 );
+
 //difference between let , var  block scope .
 function checkVariables() {
     let checkMe = "I am Outside";
@@ -194,6 +202,33 @@ function checkVariables() {
   checkVariables();
 
 /* =========== Arrays and its methods in Javascript ============ */
+
+//let fruits = new Array;    //optional not compulsory to write this
+//console.log(fruits);
+fruits = ['mango', 'apple', 'orange'];
+console.log(fruits);
+console.log(fruits.length); //for check length of an array
+console.log(fruits[0]);     //for get 1st elemt in an array
+console.log(fruits[fruits.length-1]);   //for get last element in an array
+console.log(fruits[1]);     //for get 2nd element in an array
+
+fruits.forEach(function(element, index ,arr){
+    console.log(`My favourite Fruit is ${element} on index numner ${index} and belong to this arry ${arr}`)
+})
+fruits.forEach((element, index ,arr) => {
+    console.log(`My favourite Fruit is ${element} on index numner ${index} and belong to this arry ${arr}`)
+})
+
+for (let i = 0; i < fruits.length; i++) {
+    const element = fruits[i];
+    console.log(`My favourite Fruit is ${element}`)
+}
+for (let elementsId in fruits) {
+    console.log(`The index number of array element is ${elementsId}`);
+}
+for (let element of fruits) {
+    console.log(`my favourite fruit is ${element}`);
+}
 
 
 
