@@ -272,3 +272,68 @@ console.log(numGreaterThanFiveFilterData);
 console.log(numGreaterThanFive.sort()); //sort an array
 
 //crud of an array 
+let colours = ['blue', 'red', 'orange'];
+console.log(colours);
+colours.push('pink','violet'); //add data in last
+console.log(colours);
+colours.unshift('yellow'); //add data in first
+console.log(colours);
+colours.pop(); //remove data in last
+console.log(colours);
+colours.shift(); //remove data in first
+console.log(colours);
+colours.splice(2, 0, 'pomegranate') //splice metohd add and delete data in array
+console.log(colours);
+colours.splice(colours.length, 0, 'imli') //splice metohd add and delete data in array
+console.log(colours);
+colours.splice(1, 1,'etc') //splice metohd add and delete data in array
+console.log(colours);
+colours.splice(2 , 2) //splice metohd add and delete data in array
+console.log(colours); 
+let color = colours.slice(1, 3) //slice method returns selected elements in an new array
+console.log(color);
+let color2 = colours.slice(1, Infinity)
+console.log(color2);
+
+//Map Method
+let sumOfNumbers = [20, 30,40,50,60,70,80,90,200];
+let mapArray = sumOfNumbers.map((currElem , id, arr)=>{
+  return `the value is ${currElem} on index num ${id} belongs to array ${arr}`;
+});
+console.log(mapArray);
+
+//Reduce method 
+let reduceMethod = sumOfNumbers.reduce((accumulator ,currentValue, index, array)=>{
+  return accumulator += currentValue;
+});
+console.log(reduceMethod);
+
+//also pas initial values in reduce method
+let reduceMethod2 = sumOfNumbers.reduce((accumulator ,currentValue, index, array)=>{
+  return accumulator += currentValue;
+},110);
+console.log(reduceMethod2);
+
+//Flat An Array
+let arrayInArray = [
+  ['one','two'],
+  ['three','four'],
+  ['five',['six', 'seven']]
+];
+flatArray = arrayInArray.reduce((accumulator, currentValue)=>{
+  return accumulator.concat(currentValue);
+});
+console.log(flatArray);
+
+//Map Method Chaining System Example 
+let allNumbers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50];
+let methodChaining = allNumbers.map((elem)=>elem * 2).filter((element)=>element > 50).reduce((accumulator, currElem)=>accumulator += currElem);
+console.log(methodChaining);
+
+/* =========== Strings and its methods in Javascript ============ */
+
+
+
+
+
+

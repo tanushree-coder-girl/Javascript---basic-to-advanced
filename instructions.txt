@@ -401,7 +401,95 @@
         it gives output console.log(num.sort()); // [1,2,20,3,40]
 
     4. How to insert /add /replace/ delete in array (CRUD)
-    
+
+        Add Data in last 
+            let myArray = ['apple','banana',]
+            myArray.push('mango');
+            myArray.push('orange', 'guava');        //also add multiples values
+        Add Data in Start 
+            myArray.unshift('lichi');
+
+        Remove last element of array
+            myArray.pop();
+        remove first element of array
+            myArray.shift();
+        
+        Splice Metohd 
+            myArray.splice(add index, delete index, add element);
+            for example myArray.splice(3, 0, 'grapes');  //it add grapes on index 3
+            myArray.splice(myArray.length , 0, 'grapes');       /it adds an element in last 
+            myArray.splice(1, 1,'papapya')  //it replace 1 index from papaya
+            myArray.splice(2, 2); //remove 2 elements from 2 index
+
+        Slice method 
+            slice method returns selected elements in an array, as a new array. does not change the original array. 
+            syntax 
+            myArray.slice(starting index, ending index);
+            myArray.slice(1,3);
+            myArray.slice(2, Infinity)
+
+    5. Map(), reduce(), Filter() method in brief.
+
+    Map Method
+    map method is used to fetch all data of an array it is similar as foreach but the major difference between foreach and map method is that- 
+    map : it returns new array without mutating the original array . 
+            map method also use chaining other methods . 
+    forEach : it mutating the original array 
+
+    example of map method 
+        array.map((element , index, array)=>{
+            return element;
+        });
+
+    Filter Method is used to filter data 
+        array.filter((element , index, array)=>{
+            return element.category == "horror";
+        });
+
+    reduce Method 
+        The reduce Method executes a reducer function (that you provide) on each element of the array resulting in single output value. the reduces function takes 4 Arguements . 
+        accumulator , current Value , Index , array 
+
+        array.reduce((accumulator, currentValue, index, array)=>{
+            return accumulator += currentValue;
+        });
+
+        //also pas initial value
+            let sumofAllNum = array.reduce((accumulator, currentValue, index, array)=>{
+                return accumulator += currentValue;
+            },10);
+            console.log(sumofAllNum);
+
+        reduce Method is used to Flattern an array means to convert the 2d , 3d array in to a single dimensional array. 
+        example => 
+            let arr = [
+                ['one','two'],
+                ['three','four'],
+                ['five','six']
+            ];
+            flatArray = arr.reduce((accumulator, currentValue)=>{
+                return accumulator.concat(currentValue);
+            });
+            console.log(flatArray);
+
+    Map Method chaining System example 
+    let allNumbers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50];
+    let methodChaining = allNumbers.map((elem)=>elem * 2).filter((element)=>element > 50).reduce(       (accumulator, currElem)=>accumulator += currElem);
+    console.log(methodChaining);
+
+    in the above example first we multiply all element by 2 then we find only those element which iss greater than 50 then we add all filter data using reduce method .
+
+12. Strings In Javascript
+
+
+
+        
+
+
+
+
+
+
 
         
 
