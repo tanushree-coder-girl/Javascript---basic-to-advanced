@@ -351,9 +351,68 @@
             }
 
     2: Searching And Filtering Of An Array
-        var student = ["rahul","rohit","abhav","ankit","afrin"];
-        console.log(student.indexOf());
+        var student = ["rahul","rohit","abhav","ankit","afrin","abhav"];
+
+        indexOf method syntax--
+            indexOf('what to find', from where start finding);
+
+        console.log(student.indexOf());  //if not match with anything it return -1 
+        console.log(student.indexOf('abhav'));   //if gives index number //2 
+        console.log(student.indexOf('abhav', 3)); //if start finding from 3 index number and return 5
+
+        lastIndexOf method syntax--
+            lastIndexOf('what to find', start finding from last element);
+
+        console.log(student.lastIndexOf("abhav"));   //start finding from last element return 5 
+        console.log(student.lastIndexOf("abhav", 2));  //return 3
+        if not find anything return -1 
+        
+        //Includes method                       //it comes in es6 part
+            if check is present or not return true or false
+        console.log(student.includes('rahul'));
+        console.log(student.includes('rahul',3));
+
+        //Find Method and findIndex method 
+
+        //find method return only one matching element if not find anuthing then ot return undefined
+            let myArray = [1,2,3,4,5,6,7,8,9,10]
+            console.log(myArray.find((element)=>{
+                return element < 5;
+            }));
+
+        //findIndex method return only one matching element id if not find anuthing then ot return -1
+            let myArray = [1,2,3,4,5,6,7,8,9,10]
+            console.log(myArray.find((elementId)=>{
+                return elementId < 5;
+            }));
+
+        //Filter Method 
+            //Filter Method Returns all matching element in an new array if not find any matching results then it returns empty array
+             
+                let numGreaterThanFiveFilterData = myArray.filter((element, index, arr)=>{
+                   return element > 5;
+                });
+                console.log(numGreaterThanFiveFilterData);
+            
+    3. How to sort and compare and array 
+        //converting in string and compare return in ascending order.
+        myArray.sort(); 
+        for example => let num = [1,2,3,40,20];
+        it gives output console.log(num.sort()); // [1,2,20,3,40]
+
+    4. How to insert /add /replace/ delete in array (CRUD)
     
+
+        
+
+
+
+
+
+
+
+
+        
 
 
         
