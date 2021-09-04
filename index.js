@@ -1,3 +1,5 @@
+//"use strict";     //use strict is a es5 feature which is used to write code in strict mode.
+
 console.log("hello world"); //for printing in console
 
 /* ============= VARIABLES =============== */
@@ -116,6 +118,14 @@ if (age <= 5) {
   console.log("you can drink colddrink");
 } else {
   console.log("you can drink soft drinks or adults drink");
+}
+
+//Falsy values 
+// fasly values in js => 0, ' ', undefined, null, nan falsy values always show else block. 
+if (0){
+  console.log('i am not executed in falsy value');
+}else{
+  console.log('i am always executed with falsy value');
 }
 
 //ternary operator
@@ -310,6 +320,7 @@ console.log(reduceMethod);
 
 //also pas initial values in reduce method
 let reduceMethod2 = sumOfNumbers.reduce((accumulator ,currentValue, index, array)=>{
+  //debugger;
   return accumulator += currentValue;
 },110);
 console.log(reduceMethod2);
@@ -320,7 +331,8 @@ let arrayInArray = [
   ['three','four'],
   ['five',['six', 'seven']]
 ];
-flatArray = arrayInArray.reduce((accumulator, currentValue)=>{
+
+let flatArray = arrayInArray.reduce((accumulator, currentValue)=>{
   return accumulator.concat(currentValue);
 });
 console.log(flatArray);
@@ -330,7 +342,68 @@ let allNumbers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50];
 let methodChaining = allNumbers.map((elem)=>elem * 2).filter((element)=>element > 50).reduce((accumulator, currElem)=>accumulator += currElem);
 console.log(methodChaining);
 
+//Array Destructing 
+let countries = ['darjeeling','pakistan','afghanistan','usa','uk'];
+let [one,two,three,four,five] = countries;
+console.log(`Our Neighbouring countries are ${one}, ${two}, ${three}, ${four}, ${five}`);
+
+let moreNeighbouringCountries = [...countries, 'china','japan'];
+console.log(moreNeighbouringCountries);
+
 /* =========== Strings and its methods in Javascript ============ */
+
+let myString = "Hello world";                   //using double quotes
+let myString1 = 'Hello world';                   //usimg single quotes
+let myString2 = `Hello world`;                   //using template literals
+let myString3 = new String("hello world");       //using constructor
+console.log(myString + myString1 + myString2 + myString3);
+console.log(myString.length);                //for check length of an string
+
+//Escape Characters
+let writer = `poem is written by "Mr. Shaikh" `;
+//let writer = "poem is written by 'mr shaikh'";
+//let writer = 'poem is written by "mr shaikh"';
+//let writer = "poem is written by \"mr shk\" ";
+//let writer = 'poem is written by \'Mr. Shaikh\' ';
+console.log(writer);
+
+//find a string in a string
+console.log(writer.indexOf('e'));
+console.log(writer.indexOf('e', 3));
+console.log(writer.lastIndexOf('e'));
+console.log(writer.lastIndexOf('e',3))
+;
+//seach for a string in a string
+console.log(writer.search('Mr')); //does not take 2nd argument for position
+
+//Extracting Strings parts 
+console.log(writer.slice(20));      //20 s end tk return krega
+console.log(writer.slice(20,25));   // 20 s 25 tk return krega
+console.log(writer.slice(20,-4));   //last k four nhi dega
+
+console.log(writer.substring(20));
+console.log(writer.substring(20, 25));
+console.log(writer.substring(20, -4));    //cannot accept negative values 
+
+console.log(writer.substr(0,10));       //0 se 10 tk return krega
+console.log(writer.substr(-10));       //returns last 10 values
+
+//Replacing String Contents 
+console.log(writer.replace('Shaikh', 'Aarav'));
+
+//Extracting String Characters 
+console.log(writer.charAt('11'));
+console.log(writer.charCodeAt('11'));
+console.log(writer[11]);
+
+//Some Other UseFul Methods are 
+console.log(writer.toUpperCase());
+console.log(writer.toLowerCase());
+console.log(writer.concat('yeee'));
+console.log(writer.trim());       //remove white spaces
+console.log(writer.split(" "));   //converting an string into an array use split with , | - " " etc
+
+/* =========== Date and Time in Javascript ============ */
 
 
 

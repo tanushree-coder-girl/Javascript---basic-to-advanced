@@ -191,6 +191,13 @@
             console.log('else block')
         }
 
+    note : fasly values in js => 0, ' ', undefined, null, nan falsy values always show else block. 
+    if (0){
+        console.log('i am not executed in falsy value');
+    }else{
+        console.log('i am always executed with falsy value');
+    }
+
     //Switch Case Statement
         var a = 1;
         switch(condition){
@@ -315,6 +322,8 @@
     3. How to sort and compare and array 
     4. How to insert /add /replace/ delete in array (CRUD)
     5. Map(), reduce(), Filter() method in brief.
+    6. Array Destructing                        //It comes in ES6 Part
+    7. Spread Operators                         //It comes in ES6 Part
 
     Ways to declare Array are- 
         var fruits = new Array;    //optional not compulsory to write this
@@ -367,7 +376,7 @@
         console.log(student.lastIndexOf("abhav", 2));  //return 3
         if not find anything return -1 
         
-        //Includes method                       //it comes in es6 part
+        //Includes method                        //It comes in ES6 Part
             if check is present or not return true or false
         console.log(student.includes('rahul'));
         console.log(student.includes('rahul',3));
@@ -430,84 +439,142 @@
 
     5. Map(), reduce(), Filter() method in brief.
 
-    Map Method
-    map method is used to fetch all data of an array it is similar as foreach but the major difference between foreach and map method is that- 
-    map : it returns new array without mutating the original array . 
-            map method also use chaining other methods . 
-    forEach : it mutating the original array 
+        Map Method
+        map method is used to fetch all data of an array it is similar as foreach but the major difference between foreach and map method is that- 
+        map : it returns new array without mutating the original array . 
+                map method also use chaining other methods . 
+        forEach : it mutating the original array 
 
-    example of map method 
-        array.map((element , index, array)=>{
-            return element;
-        });
-
-    Filter Method is used to filter data 
-        array.filter((element , index, array)=>{
-            return element.category == "horror";
-        });
-
-    reduce Method 
-        The reduce Method executes a reducer function (that you provide) on each element of the array resulting in single output value. the reduces function takes 4 Arguements . 
-        accumulator , current Value , Index , array 
-
-        array.reduce((accumulator, currentValue, index, array)=>{
-            return accumulator += currentValue;
-        });
-
-        //also pas initial value
-            let sumofAllNum = array.reduce((accumulator, currentValue, index, array)=>{
-                return accumulator += currentValue;
-            },10);
-            console.log(sumofAllNum);
-
-        reduce Method is used to Flattern an array means to convert the 2d , 3d array in to a single dimensional array. 
-        example => 
-            let arr = [
-                ['one','two'],
-                ['three','four'],
-                ['five','six']
-            ];
-            flatArray = arr.reduce((accumulator, currentValue)=>{
-                return accumulator.concat(currentValue);
+        example of map method 
+            array.map((element , index, array)=>{
+                return element;
             });
-            console.log(flatArray);
 
-    Map Method chaining System example 
-    let allNumbers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50];
-    let methodChaining = allNumbers.map((elem)=>elem * 2).filter((element)=>element > 50).reduce(       (accumulator, currElem)=>accumulator += currElem);
-    console.log(methodChaining);
+        Filter Method is used to filter data 
+            array.filter((element , index, array)=>{
+                return element.category == "horror";
+            });
 
-    in the above example first we multiply all element by 2 then we find only those element which iss greater than 50 then we add all filter data using reduce method .
+        reduce Method 
+            The reduce Method executes a reducer function (that you provide) on each element of the array resulting in single output value. the reduces function takes 4 Arguements . 
+            accumulator , current Value , Index , array 
+
+            array.reduce((accumulator, currentValue, index, array)=>{
+                return accumulator += currentValue;
+            });
+
+            //also pas initial value
+                let sumofAllNum = array.reduce((accumulator, currentValue, index, array)=>{
+                    return accumulator += currentValue;
+                },10);
+                console.log(sumofAllNum);
+
+            reduce Method is used to Flattern an array means to convert the 2d , 3d array in to a single dimensional array. 
+            example => 
+                let arr = [
+                    ['one','two'],
+                    ['three','four'],
+                    ['five','six']
+                ];
+                flatArray = arr.reduce((accumulator, currentValue)=>{
+                    return accumulator.concat(currentValue);
+                });
+                console.log(flatArray);
+
+        Map Method chaining System example 
+        let allNumbers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50];
+        let methodChaining = allNumbers.map((elem)=>elem * 2).filter((element)=>element > 50).reduce(       (accumulator, currElem)=>accumulator += currElem);
+        console.log(methodChaining);
+
+        in the above example first we multiply all element by 2 then we find only those element which iss greater than 50 then we add all filter data using reduce method .
+
+    6. Array Destructing
+        it comes in es6 part to destruct an array 
+        syntax: let myArray = ['mango','apple','orange'];
+                let [fruit1, fruit2, fruit3] = myArray;
+                console.log(`${fruit1} ${fruit2} ${fruit2}`);
+        
+    7. Spread Operator 
+        JavaScript ES6 (ECMAScript 6) introduced the spread operator. The syntax is three dots(...) followed by the array (or iterable*). It expands the array into individual elements. So, it can be used to expand the array in a places where zero or more elements are expected.
+        for example 
+            let num = [1,2,3,4,5];
+            let moreNum = [...num, 6,7,8,9,10]
 
 12. Strings In Javascript
+    ways to declare string are- 
+        let myString = "Hello world";                   //using double quotes
+        let myString = 'Hello world';                   //usimg single quotes
+        let myString = `Hello world`;                   //using template literals
+        let myString = new String("hello world");       //using constructor
 
+        console.log(myString.length)                //for check length of an string
 
+    Some main topics we will study in strings are-----
+    1. Escape Character
+    2. finding A string in a string
+    3. searching for a string in a string
+    4. Extracting Strings parts
+    5. Replacing String Content
+    6. Extracting String Characters 
+    7. Other Useful Methods 
 
-        
+    1. Escape Character
+        let writer = "poem is written by \"mr shk\" ";
+        let writer = 'poem is writter by \'Mr. Shaikh\' ';
+        let writer = "poem is writter by "Mr. Shaikh" ";
+        let writer = "poem is writter by 'Mr. Shaikh' ";
+        let writer = `poem is writter by "Mr. Shaikh" `;
 
+    2. finding A string in a string
+        if not find anything it returns -1 ;
 
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-
-
-        
-
-
-            
-
+        console.log(writer.indexOf('e'));           //find from first
+        console.log(writer.indexOf('e', 3));
+        console.log(writer.lastIndexOf('e'));       //find from last
+        console.log(writer.lastIndexOf('e',3))
     
+    3. searching for a string in a string
+        console.log(writer.search('Mr')); //does not take 2nd argument for position
+
+    4. Extracting Strings parts
+        There Are 3 methods for Extracting part of a string. 
+            slice(start,end);
+            substring(start,end);
+            substr(start,length);
+
+            emaple: 
+            console.log(writer.slice(20));      //20 s end tk return krega
+            console.log(writer.slice(20,25));   // 20 s 25 tk return krega
+            console.log(writer.slice(20,-4));   //last k four nhi dega
+
+            console.log(writer.substring(20));
+            console.log(writer.substring(20, 25));
+            console.log(writer.substring(20, -4));    //cannot accept negative values 
+
+            console.log(writer.substr(0,10));       //0 se 10 tk return krega
+            console.log(writer.substr(-10));       //returns last 10 values
+
+    5.  Replacing String Content
+        console.log(writer.replace('Shaikh', 'Aarav'));
+
+    6.  Extracting String Characters 
+        There Are 3 methods for Extracting string character . 
+        1. charAt(position);
+            console.log(writer.charAt('11'));
+        2. charCodeAt(position);
+            console.log(writer.charCodeAt('11'));
+        3. property Access[]; 
+            console.log(writer[11]);
+
+    7. Other Useful Methods 
+        console.log(writer.toUpperCase());
+        console.log(writer.toLowerCase());
+        console.log(writer.concat('yeee'));
+        console.log(writer.trim());     //remove white spaces
+        console.log(writer.split(" ")); //converting an string into an array use split as , | - " " etc
+ 
+13. Date And Time in JavaScript
+
+
 
 ---------------------------------------------------End--------------------------------------------------------------
