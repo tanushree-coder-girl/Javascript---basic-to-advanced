@@ -205,7 +205,7 @@ function checkVariables() {
 
 //let fruits = new Array;    //optional not compulsory to write this
 //console.log(fruits);
-fruits = ['mango', 'apple', 'orange'];
+let fruits = ['mango', 'apple', 'orange'];
 console.log(fruits);
 console.log(fruits.length); //for check length of an array
 console.log(fruits[0]);     //for get 1st elemt in an array
@@ -229,11 +229,3 @@ for (let elementsId in fruits) {
 for (let element of fruits) {
     console.log(`my favourite fruit is ${element}`);
 }
-
-
-
-
-
-
-
-

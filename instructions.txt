@@ -351,6 +351,8 @@
             }
 
     2: Searching And Filtering Of An Array
+        var student = ["rahul","rohit","abhav","ankit","afrin"];
+        console.log(student.indexOf());
     
 
 
