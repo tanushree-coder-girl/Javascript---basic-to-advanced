@@ -574,7 +574,75 @@
         console.log(writer.split(" ")); //converting an string into an array use split as , | - " " etc
  
 13. Date And Time in JavaScript
+    1. Date Metohd (get and set)
+    2. Time Method (get and set)
 
+    JavaScript Has built in method for create date example=>
+        let date = new Date();
+
+        let date = new Date();
+        console.log(date);
+        console.log(date.toLocaleString());
+        console.log(date.toString());
+        console.log(Date.now()); //return miliseconds since 1 jan 1970
+        //new Date(year, month, day, hour, min, second, miliseconds);
+        console.log(new Date(2021, 0, 25, 33, 20 ,0, 0));
+        console.log(new Date(2021, 0, 25));         //return year month and date
+        console.log(new Date(2021, 12));            //return year and month
+        console.log(new Date("October 13, 2014 11:13:00"));
+        console.log(new Date(100000000000));      //return only miliseconds
+
+    1. Date Method (get and set)
+        //Js Date Get Methods 
+            console.log(new Date().toLocaleString());
+            console.log(new Date().getFullYear());
+            console.log(new Date().getMonth());
+            console.log(new Date().getDate());
+            console.log(new Date().getHours());
+            console.log(new Date().getMinutes());
+            console.log(new Date().getSeconds());
+            console.log(new Date().getMilliseconds());
+            console.log(new Date().getDay());
+            console.log(Date.now());
+
+        //Js Date Set Methods
+            console.log(new Date().setDate(15));
+            console.log(new Date().setFullYear(2026));
+            console.log(new Date().setFullYear(2026, 10, 5));
+            console.log(new Date().setMonth(12));        
+
+    2. Time Method (get and set)
+        //Js Time Get Methods 
+            console.log(new Date().getTime());
+            console.log(new Date().getHours());
+            console.log(new Date().getMinutes());
+            console.log(new Date().getSeconds());
+            console.log(new Date().getMilliseconds());
+
+        //Js Time Set Methods
+            console.log(new Date().setTime());
+            console.log(new Date().setHours(5));
+            console.log(new Date().setMinutes(5));
+            console.log(new Date().setSeconds(5));
+            console.log(new Date().setMilliseconds(5));
+
+14. Math object In JavaScript
+    console.log(Math.PI);                       //returns pi Value
+    console.log(Math.round(25.780));            //return rounded value 26 bcoz .7 
+    console.log(Math.round(25.4));              //return rounded value 25 bcoz .4 
+    console.log(Math.pow(3, 3));                //power 3 * 3 * 3
+    console.log(Math.sqrt(25));                 //Square Root
+    console.log(Math.abs(-20));                 // return positive value
+    console.log(Math.ceil(25.480));             // always rounds a number up to the next largest integer.
+    console.log(Math.floor(25.600));            //rounds a number DOWNWARDS to the nearest integer.
+    console.log(Math.random());                 //generate ranodm number
+    console.log(Math.floor(Math.random() * 10));
+    console.log(Math.min(0,120,150,-87,09,-5)); //return smallest
+    console.log(Math.max(0,120,150,-87,09,-5)); //return largest one
+    console.log(Math.trunc(4.9));               /returns integer part of number by removing fractional digits.
+    console.log(Math.trunc(-4.9));              //same as math.floor if negative equal to math.ceil
+
+15. DOM (document object model), BOM (browser object model) and Window Object in JavaScript
 
 
 ---------------------------------------------------End--------------------------------------------------------------
