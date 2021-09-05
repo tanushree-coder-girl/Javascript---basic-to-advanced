@@ -124,12 +124,12 @@ if (age <= 5) {
   console.log("you can drink soft drinks or adults drink");
 }
 
-//Falsy values 
-// fasly values in js => 0, ' ', undefined, null, nan falsy values always show else block. 
-if (0){
-  console.log('i am not executed in falsy value');
-}else{
-  console.log('i am always executed with falsy value');
+//Falsy values
+// fasly values in js => 0, ' ', undefined, null, nan falsy values always show else block.
+if (0) {
+  console.log("i am not executed in falsy value");
+} else {
+  console.log("i am always executed with falsy value");
 }
 
 //ternary operator
@@ -175,7 +175,7 @@ do {
 
 //for loops
 for (let i = 0; i <= 10; i++) {
-  debugger;
+  //debugger;
   console.log(i);
 }
 
@@ -260,109 +260,123 @@ for (let element of fruits) {
 //searching and filtering of an array
 var student = ["rahul", "rohit", "abhav", "ankit", "afrin", "rahul"];
 console.log(student.indexOf("rahul"));
-console.log(student.indexOf('abhav'));
-console.log(student.indexOf('rahul', 1));
+console.log(student.indexOf("abhav"));
+console.log(student.indexOf("rahul", 1));
 console.log(student.lastIndexOf("rahul"));
 console.log(student.lastIndexOf("rahul", 3));
-console.log(student.includes('rahul'));
-console.log(student.includes('rahul',6));
+console.log(student.includes("rahul"));
+console.log(student.includes("rahul", 6));
 
 //find method return only one matching element if not find anuthing then ot return undefined
-let newStudentArray = student.find((element , index , array)=>{
-    return element == 'rahul'
+let newStudentArray = student.find((element, index, array) => {
+  return element == "rahul";
 });
 console.log(newStudentArray);
 
 //findIndex method return only one matching element id if not find anuthing then ot return -1
-let newStudentArrayIndex = student.findIndex((elementIndexNum)=> elementIndexNum == 'rahul');
+let newStudentArrayIndex = student.findIndex(
+  (elementIndexNum) => elementIndexNum == "rahul"
+);
 console.log(newStudentArrayIndex);
 
 //filter method returns all element in a new array with is exactly matched
 //filter mrthod if not find anything return an empty array
-let numGreaterThanFive = [1,2,3,4,5,6,7,8,9,10];
-let numGreaterThanFiveFilterData = numGreaterThanFive.filter((element, index, arr)=>{
+let numGreaterThanFive = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let numGreaterThanFiveFilterData = numGreaterThanFive.filter(
+  (element, index, arr) => {
     return element > 5;
-});
+  }
+);
 console.log(numGreaterThanFiveFilterData);
 console.log(numGreaterThanFive.sort()); //sort an array
 
-//crud of an array 
-let colours = ['blue', 'red', 'orange'];
+//crud of an array
+let colours = ["blue", "red", "orange"];
 console.log(colours);
-colours.push('pink','violet'); //add data in last
+colours.push("pink", "violet"); //add data in last
 console.log(colours);
-colours.unshift('yellow'); //add data in first
+colours.unshift("yellow"); //add data in first
 console.log(colours);
 colours.pop(); //remove data in last
 console.log(colours);
 colours.shift(); //remove data in first
 console.log(colours);
-colours.splice(2, 0, 'pomegranate') //splice metohd add and delete data in array
+colours.splice(2, 0, "pomegranate"); //splice metohd add and delete data in array
 console.log(colours);
-colours.splice(colours.length, 0, 'imli') //splice metohd add and delete data in array
+colours.splice(colours.length, 0, "imli"); //splice metohd add and delete data in array
 console.log(colours);
-colours.splice(1, 1,'etc') //splice metohd add and delete data in array
+colours.splice(1, 1, "etc"); //splice metohd add and delete data in array
 console.log(colours);
-colours.splice(2 , 2) //splice metohd add and delete data in array
-console.log(colours); 
-let color = colours.slice(1, 3) //slice method returns selected elements in an new array
+colours.splice(2, 2); //splice metohd add and delete data in array
+console.log(colours);
+let color = colours.slice(1, 3); //slice method returns selected elements in an new array
 console.log(color);
-let color2 = colours.slice(1, Infinity)
+let color2 = colours.slice(1, Infinity);
 console.log(color2);
 
 //Map Method
-let sumOfNumbers = [20, 30,40,50,60,70,80,90,200];
-let mapArray = sumOfNumbers.map((currElem , id, arr)=>{
+let sumOfNumbers = [20, 30, 40, 50, 60, 70, 80, 90, 200];
+let mapArray = sumOfNumbers.map((currElem, id, arr) => {
   return `the value is ${currElem} on index num ${id} belongs to array ${arr}`;
 });
 console.log(mapArray);
 
-//Reduce method 
-let reduceMethod = sumOfNumbers.reduce((accumulator ,currentValue, index, array)=>{
-  return accumulator += currentValue;
-});
+//Reduce method
+let reduceMethod = sumOfNumbers.reduce(
+  (accumulator, currentValue, index, array) => {
+    return (accumulator += currentValue);
+  }
+);
 console.log(reduceMethod);
 
 //also pas initial values in reduce method
-let reduceMethod2 = sumOfNumbers.reduce((accumulator ,currentValue, index, array)=>{
-  //debugger;
-  return accumulator += currentValue;
-},110);
+let reduceMethod2 = sumOfNumbers.reduce(
+  (accumulator, currentValue, index, array) => {
+    //debugger;
+    return (accumulator += currentValue);
+  },
+  110
+);
 console.log(reduceMethod2);
 
 //Flat An Array
 let arrayInArray = [
-  ['one','two'],
-  ['three','four'],
-  ['five',['six', 'seven']]
+  ["one", "two"],
+  ["three", "four"],
+  ["five", ["six", "seven"]],
 ];
 
-let flatArray = arrayInArray.reduce((accumulator, currentValue)=>{
+let flatArray = arrayInArray.reduce((accumulator, currentValue) => {
   return accumulator.concat(currentValue);
 });
 console.log(flatArray);
 
-//Map Method Chaining System Example 
-let allNumbers = [1,2,3,4,5,6,7,8,9,10,20,30,40,50];
-let methodChaining = allNumbers.map((elem)=>elem * 2).filter((element)=>element > 50).reduce((accumulator, currElem)=>accumulator += currElem);
+//Map Method Chaining System Example
+let allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50];
+let methodChaining = allNumbers
+  .map((elem) => elem * 2)
+  .filter((element) => element > 50)
+  .reduce((accumulator, currElem) => (accumulator += currElem));
 console.log(methodChaining);
 
-//Array Destructing 
-let countries = ['darjeeling','pakistan','afghanistan','usa','uk'];
-let [one,two,three,four,five] = countries;
-console.log(`Our Neighbouring countries are ${one}, ${two}, ${three}, ${four}, ${five}`);
+//Array Destructing
+let countries = ["darjeeling", "pakistan", "afghanistan", "usa", "uk"];
+let [one, two, three, four, five] = countries;
+console.log(
+  `Our Neighbouring countries are ${one}, ${two}, ${three}, ${four}, ${five}`
+);
 
-let moreNeighbouringCountries = [...countries, 'china','japan'];
+let moreNeighbouringCountries = [...countries, "china", "japan"];
 console.log(moreNeighbouringCountries);
 
 /* =========== Strings and its methods in Javascript ============ */
 
-let myString = "Hello world";                   //using double quotes
-let myString1 = 'Hello world';                   //usimg single quotes
-let myString2 = `Hello world`;                   //using template literals
-let myString3 = new String("hello world");       //using constructor
+let myString = "Hello world"; //using double quotes
+let myString1 = "Hello world"; //usimg single quotes
+let myString2 = `Hello world`; //using template literals
+let myString3 = new String("hello world"); //using constructor
 console.log(myString + myString1 + myString2 + myString3);
-console.log(myString.length);                //for check length of an string
+console.log(myString.length); //for check length of an string
 
 //Escape Characters
 let writer = `poem is written by "Mr. Shaikh" `;
@@ -373,40 +387,39 @@ let writer = `poem is written by "Mr. Shaikh" `;
 console.log(writer);
 
 //find a string in a string
-console.log(writer.indexOf('e'));
-console.log(writer.indexOf('e', 3));
-console.log(writer.lastIndexOf('e'));
-console.log(writer.lastIndexOf('e',3))
-;
+console.log(writer.indexOf("e"));
+console.log(writer.indexOf("e", 3));
+console.log(writer.lastIndexOf("e"));
+console.log(writer.lastIndexOf("e", 3));
 //seach for a string in a string
-console.log(writer.search('Mr')); //does not take 2nd argument for position
+console.log(writer.search("Mr")); //does not take 2nd argument for position
 
-//Extracting Strings parts 
-console.log(writer.slice(20));      //20 s end tk return krega
-console.log(writer.slice(20,25));   // 20 s 25 tk return krega
-console.log(writer.slice(20,-4));   //last k four nhi dega
+//Extracting Strings parts
+console.log(writer.slice(20)); //20 s end tk return krega
+console.log(writer.slice(20, 25)); // 20 s 25 tk return krega
+console.log(writer.slice(20, -4)); //last k four nhi dega
 
 console.log(writer.substring(20));
 console.log(writer.substring(20, 25));
-console.log(writer.substring(20, -4));    //cannot accept negative values 
+console.log(writer.substring(20, -4)); //cannot accept negative values
 
-console.log(writer.substr(0,10));       //0 se 10 tk return krega
-console.log(writer.substr(-10));       //returns last 10 values
+console.log(writer.substr(0, 10)); //0 se 10 tk return krega
+console.log(writer.substr(-10)); //returns last 10 values
 
-//Replacing String Contents 
-console.log(writer.replace('Shaikh', 'Aarav'));
+//Replacing String Contents
+console.log(writer.replace("Shaikh", "Aarav"));
 
-//Extracting String Characters 
-console.log(writer.charAt('11'));
-console.log(writer.charCodeAt('11'));
+//Extracting String Characters
+console.log(writer.charAt("11"));
+console.log(writer.charCodeAt("11"));
 console.log(writer[11]);
 
-//Some Other UseFul Methods are 
+//Some Other UseFul Methods are
 console.log(writer.toUpperCase());
 console.log(writer.toLowerCase());
-console.log(writer.concat('yeee'));
-console.log(writer.trim());       //remove white spaces
-console.log(writer.split(" "));   //converting an string into an array use split with , | - " " etc
+console.log(writer.concat("yeee"));
+console.log(writer.trim()); //remove white spaces
+console.log(writer.split(" ")); //converting an string into an array use split with , | - " " etc
 
 /* =========== Date and Time in Javascript ============ */
 
@@ -420,13 +433,13 @@ console.log(date.toLocaleDateString());
 console.log(Date.now()); //return miliseconds since 1 jan 1970
 
 //new Date(year, month, day, hour, min, second, miliseconds);
-console.log(new Date(2021, 0, 25, 33, 20 ,0, 0));
-console.log(new Date(2021, 0, 25));         //return year month and date
-console.log(new Date(2021, 12));            //return year and month
+console.log(new Date(2021, 0, 25, 33, 20, 0, 0));
+console.log(new Date(2021, 0, 25)); //return year month and date
+console.log(new Date(2021, 12)); //return year and month
 console.log(new Date("October 13, 2014 11:13:00"));
-console.log(new Date(100000000000));      //return only miliseconds
+console.log(new Date(100000000000)); //return only miliseconds
 
-//Js Date Get Methods 
+//Js Date Get Methods
 console.log(new Date().toLocaleString());
 console.log(new Date().getFullYear());
 console.log(new Date().getMonth());
@@ -444,7 +457,7 @@ console.log(new Date().setFullYear(2026));
 console.log(new Date().setFullYear(2026, 10, 5));
 console.log(new Date().setMonth(12));
 
-//Js Time Get Methods 
+//Js Time Get Methods
 console.log(new Date().getTime());
 console.log(new Date().getHours());
 console.log(new Date().getMinutes());
@@ -461,19 +474,67 @@ console.log(new Date().setMilliseconds(5));
 /* =========== Math Object in Javascript ============ */
 
 console.log(Math.PI); //returns pi Value
-console.log(Math.round(25.780)); //return rounded value 26 bcoz .7 
-console.log(Math.round(25.4));    //return rounded value 25 bcoz .4 
-console.log(Math.pow(3, 3));    //power 3 * 3 * 3
-console.log(Math.sqrt(25));     //Square Root
-console.log(Math.abs(-20));     // return positive value
-console.log(Math.ceil(25.480));  // always rounds a number up to the next largest integer.
-console.log(Math.floor(25.600));  //rounds a number DOWNWARDS to the nearest integer.
-console.log(Math.random());       //generate ranodm number
+console.log(Math.round(25.78)); //return rounded value 26 bcoz .7
+console.log(Math.round(25.4)); //return rounded value 25 bcoz .4
+console.log(Math.pow(3, 3)); //power 3 * 3 * 3
+console.log(Math.sqrt(25)); //Square Root
+console.log(Math.abs(-20)); // return positive value
+console.log(Math.ceil(25.48)); // always rounds a number up to the next largest integer.
+console.log(Math.floor(25.6)); //rounds a number DOWNWARDS to the nearest integer.
+console.log(Math.random()); //generate ranodm number
 console.log(Math.floor(Math.random() * 10));
-console.log(Math.min(0,120,150,-87,09,-5)); //return smallest
-console.log(Math.max(0,120,150,-87,09,-5)); //return largest one
-console.log(Math.trunc(4.9));       //returns integer part of number by removing fractional digits.
-console.log(Math.trunc(-4.9));      //same as math.floor if negative equal to math.ceil
+console.log(Math.min(0, 120, 150, -87, 09, -5)); //return smallest
+console.log(Math.max(0, 120, 150, -87, 09, -5)); //return largest one
+console.log(Math.trunc(4.9)); //returns integer part of number by removing fractional digits.
+console.log(Math.trunc(-4.9)); //same as math.floor if negative equal to math.ceil
 
 /* =========== DOM , BOM AND Window Object in Javascript ============ */
 
+//3. window-bom : localstorage and session storage, alert , confirm , prompt etc
+//inner width and inner height
+console.log(innerWidth);
+console.log(innerHeight);
+
+//location
+console.log(location);
+console.log(location.href);
+
+//history
+function goBack() {
+  console.log(history);
+  window.history.back();
+}
+
+//confirm, alert, prompt
+if (confirm("want to visit on facebook")) {
+  alert("you are forwaded to facebook");
+  prompt("Your Feed Back please");
+  location.href = "https://www.facebook.com";
+}
+
+//prompt
+let visitorName = prompt("what is your name");
+alert(`my name is ${visitorName}`);
+
+//localstorage
+localStorage.setItem("name", visitorName);
+console.log(localStorage.getItem("name"));
+localStorage.removeItem("name");
+
+//sessionstorage
+sessionStorage.setItem("name", visitorName);
+console.log(sessionStorage.getItem("name"));
+sessionStorage.removeItem("name");
+
+//5. Searching And Getting Elements References 
+let para = document.getElementById('myPara');
+para.style.color = "red";
+console.log(document.getElementsByClassName('paragraph'));
+console.log(document.getElementsByTagName('h1'));
+console.log(document.getElementsByName('firstname'));
+document.querySelector('h1').style.color="blue";
+document.querySelector('.paragraph').style.color="brown";
+document.querySelector('#myPara').style.backgroundColor="pink";
+console.log( document.querySelectorAll('ul .list-item'));
+
+/* =========== Events In Javascript ============ */

@@ -643,6 +643,108 @@
     console.log(Math.trunc(-4.9));              //same as math.floor if negative equal to math.ceil
 
 15. DOM (document object model), BOM (browser object model) and Window Object in JavaScript
+    1. Window Vs document 
+    2. DOM Vs BOM
+    3. window-bom : localstorage and session storage, alert , confirm , prompt etc
+    4.  DOMNavigation 
+    5. Searching And Getting Elements References 
+
+    1. Window Vs document 
+        Window => 1. window is the main container or we can say that global Object and any operation related to entire browser window can be a part of window object .
+                    2. All The members like object , methods , properties .If they are part of window object then we do not refer the window object.
+                    3. windows has methods or properties and object example: setTimeout() and setInterval(), innerHeight or innerWidth etc. are the method, where as document is the object of the window and it also have a screen object with properties describing the physical display.
+
+        Document => 1. whereas document is the child of window object.
+                    2. where in the dom we need to refer the document, if we want to use the document object method or properties.
+                    3. Document is just the object of the global object which is window object which deals with the document , the html elements themselves. 
+
+        Window Is A global Object 
+        Window Has Three Objects 
+        1. DOM 
+            Dom Contains : Document, Html, body , head , a, h1, etc elements;
+        2. BOM 
+            BOM Contains : Navigator , screen , location , frames, history, XML http request
+        3. JavaScript
+            JavaScript Contains : Object , Array, Functions and js.
+
+    2. DOM VS BOM 
+        DOM => The dom is the document object model , the html element themselves , eg. document and all Traversal you would do in it events etc. 
+        for example => change the background color of body 
+            document.body.style.background = "black";
+
+        BOM => The BOM is the browser Object Model , which deals with browser components aside from the document like history, location, localstorage, Navigator, screen as well as some others that vary by browser or in simple meaning all the windows operations which comes under BOm are Performed using BOM . 
+        for example =>  for go back 
+            window.history.back();
+
+    3. window-bom : localstorage and session storage, alert , confirm , prompt etc
+        localstorage And sessionStorage
+
+        sessionStorage is similar to localStorage ; the difference is that while data in localStorage doesn't expire, data in sessionStorage is cleared when the page session ends. Whenever a document is loaded in a particular tab in the browser, a unique page session gets created and assigned to that particular tab.
+
+        localStorage.setItem('key', 'value');           //for set item
+        localStorage.getItem('key');                    //for get item
+        localStorage.removeItem('key');                 f//or remove item
+
+        sessionStorage.setItem('key', 'value');         //for set item
+        sessionStorage.getItem('key');                  //for get item
+        sessionStorage.removeItem('key');               //for remove item
+
+        alert('Hello i am pop up box');
+        confirm('Are you ready?');
+        prompt('How you feel today');
+
+        console.log(innerWidth);
+        console.log(innerHeight);
+        console.log(location);
+        console.log(location.href);
+        location.href = 'https://www.facebook.com';
+        console.log(history);
+        window.history.back();
+
+    4. DOM Navigation 
+        1. document 
+        2. document.documentElement
+        3. document.head
+        4. document.body 
+        5. document.body.childNodes         //it includes spaces also as text
+        6. document.body.children           //not includes spaces
+        7. document.body.children.length
+        8. document.body.hasChildNodes
+        9. document.body.firstChild
+        10.document.body.firstElementChild
+        11. document.body.firstElementChild.firstElementChild.style.color = "red"
+        12. document.body.parentNode
+        13. document.body.parentElement
+        14. document.head.parentElement
+        15. document.body.previousSibling
+        16. document.body.previousElementSibling
+        17. document.head.nextSibling
+        18. document.head.nextElementSibling
+
+    5. Searching And Getting Elements References 
+        1) By id 
+            document.getElementById('id');
+            By tsking References 
+            let paragraph = document.getElementById('id');
+
+        2)By Class 
+            document.getElementsByClassName('class');
+        
+        3)By TagName
+            document.getElementsByTagName('h1');
+        
+        4)By Name 
+            document.getElementsByName('name');
+        
+        5)using QuerySelector 
+            document.querySelector('h1');
+            document.querySelector('.heading');
+            document.querySelector('#para');
+        
+        6) using querySelectorAll 
+            document.querySelectorAll('.allButtons');
+
+16. Events In JavaScript 
 
 
 ---------------------------------------------------End--------------------------------------------------------------
