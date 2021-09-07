@@ -538,3 +538,96 @@ document.querySelector('#myPara').style.backgroundColor="pink";
 console.log( document.querySelectorAll('ul .list-item'));
 
 /* =========== Events In Javascript ============ */
+
+//Html is on index.html file on line number 22 to 
+
+//2. by Calling A Function
+function showMe (){
+  alert('Hello wolrd')
+}
+
+//3. element.onclick
+const myBtn = document.getElementById('myBtn');
+myBtn.onclick = function (){
+  alert('hello everyone');
+}
+
+const myBtnn = document.getElementById('myBtn');
+myBtnn.onclick = function (){
+  alert('hello everyone2');
+}
+
+//4. using event listeners 
+let myBtn2 = document.getElementById('myBtn2');
+myBtn2.addEventListener('click',()=>{
+  alert('hello i am event listener');
+});
+
+let myBtn3 = document.getElementById('myBtn2');
+myBtn3.addEventListener('click',()=>{
+  alert('hello i am event listener2');
+});
+
+//event object 
+let eventObj = (event)=> {
+  console.log(event);
+  console.log(event.type);
+  console.log(event.target);
+}
+document.querySelector('.eventobj').addEventListener('click', eventObj);
+
+//Mouse Events 
+let mouseEnter = ()=>{
+  console.log('mouse is entered');
+}
+let mouseLeave = ()=>{
+  console.log('mouse is leaved');
+}
+let mouseUp = ()=>{
+  console.log('mouse is up');
+}
+let mouseDown = ()=>{
+  console.log('mouse is down');
+}
+
+//Keyboards Events 
+let input = document.querySelector('.keyboardEvents');
+input.addEventListener('keypress', ()=>{
+  console.log('key is pressed');
+});
+input.addEventListener('keyup', ()=>{
+  console.log('key is up');
+});
+input.addEventListener('keydown', ()=>{
+  console.log('key is down');
+});
+
+//Input Events in js
+const inputHandler = () => {
+  let inputBox = document.querySelector('.keyboardEvents').value;
+  alert(inputBox);
+}
+
+//another way to use onCHange function is 
+document.querySelector('.keyboardEvents').addEventListener('change',()=>{
+  let inputBox = document.querySelector('.keyboardEvents').value;
+  alert(inputBox);
+});
+
+/* =========== Timing Based Events In Javascript ============ */
+
+let setTimeoutFunctionReference = setTimeout(() => {      //run after 5 seconds
+  alert('hello friends ')
+}, 5000);
+clearTimeout(setTimeoutFunctionReference);          //for stop execution 
+
+let todayDAte = new Date().toLocaleTimeString();
+document.querySelector('.Clock').innerHTML = todayDAte;
+
+let setIntervalRefernce = setInterval(() => {         //run every 1 second again and again
+  todayDAte = new Date().toLocaleTimeString();
+  document.querySelector('.Clock').innerHTML = todayDAte;
+}, 1000);
+//clearInterval(setIntervalRefernce);           //for stop execution
+
+/* =========== OOPs In Javascript ============ */

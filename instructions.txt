@@ -745,6 +745,100 @@
             document.querySelectorAll('.allButtons');
 
 16. Events In JavaScript 
+    Html Events Are Things that happen to html elements. when javascript is used in html pages. JavaScript can react on these events.
+
+    1. 4 Ways of writing Events in JavaScript
+    2. What is Event Object
+    3. Mouse Event in JavaScript 
+    4. Keyboard Event in JavaScript
+    5. Input Event In javascript
+
+        1. 4 ways of writing Events in JavaScript
+            1. Using Alert ();                  //Inline Event 
+            example => <button onclick="alert('hello world')">Click Me</button>
+
+            2. By Calling A Function            //is Most Common way 
+            example => <button onclick="myFunction();">Click Me</button>
+                        function myFunction(){                          //using normal function
+                            alert('hello world')
+                        }
+
+                        const myFunction = () => {                       //using Arrow Function
+                            alert('hello world');
+                        }
+
+            3. Using Inline Events on Element.onclick 
+            example => <button id="myBtn">Click me</button>
+                        const btn = document.getElementById('myBtn');
+                        btn.onclick = function (){
+                            alert('Helllo World')
+                        }
+
+            4. Using Event Listeners            //Add Event Listener 
+            example =>  <button id="myBtn">Click me</button>
+                        const btn = document.getElementById('myBtn');
+                        btn.addEventListener('click', function(){
+                            alert('Hello world');                       //using normal function
+                        });
+
+                        btn.addEventListener('click', () => {           //using Arrow Function
+                            alert('Hello world');       
+                        });
+
+            difference between onclick and addEventListener is that when you call 2nd time same function then add event Listener executes both function but onclick overwrite previous one and call last one only. so addEventListener Listener is best for use.
+
+        2. What is Event Object
+            Events that occurs when the mouse interact with the html document belongd to the mouse event object example => mouse event , focus event, keyboard event etc. 
+            for eg = > 
+                let myFunction = () => {
+                    console.log(event);
+                    console.log(event.target);
+                    console.log(event.type)
+                }
+                document.querySelector('.myClass').addEventListener('click', myFunction());
+            
+        3. Mouse Event in JavaScript 
+            <h1 onmouseenter="mouseEnter();">Mouse Enter</h1>
+            <h1 onmouseleave="mouseLeave();"> Mouse leave </h1>
+            <h1 onmouseup="mouseUp();"> Mouse Up </h1>
+            <h1 onmousedown="mouseDown();"> Mouse Down </h1>
+
+        4. Keyboard Event in JavaScript
+            <h1 onkeyup="myFun();"> Key is up </h1>
+            <h1 onkeydown="myFun();"> Key is down </h1>
+            <h1 onkeypress="myFun();"> Key is pressed </h1>
+
+        5. Input Event In javascript
+            onchange();
+            <input type="text" onchange="eventHandler();">      
+
+17. Timing Based Events In JavaScript
+    1. setTimeout();
+    2. setInterval();
+    3. clearTimeout();
+    4. clearInterval();
+
+    difference between setTimeout and setInterval is: 
+        setTimeout(function, miliseconds);
+        it executes a function a waiting a specifiedno of miliseconds. 
+
+        setInterval(function, miliseconds);
+        it repeats the execution of the function continuously. 
+
+        let ref = setTimeout(()=>{
+            alert('i am show after 5 seconds')
+        }, 5000)
+        clearTimeout(ref);      //to stop setTimeout function
+
+        let setIntervalFun = setInterval(()=>{
+            alert(new Date());
+            alert('i am run in every one second')
+        },1000);
+        clearInterval(setIntervalFun);      //to stop setInterval function
+
+18. OOPS In JavaScript
+
+
 
 
 ---------------------------------------------------End--------------------------------------------------------------
