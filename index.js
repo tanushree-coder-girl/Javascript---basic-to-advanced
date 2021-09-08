@@ -1,4 +1,5 @@
-//"use strict";     //use strict is a es5 feature which is used to write code in strict mode.
+//use strict is a es5 (EcmaScript - 2014) feature which is used to write code in strict mode.
+//"use strict";
 
 console.log("hello world"); //for printing in console
 
@@ -224,6 +225,13 @@ function checkVariables() {
 }
 checkVariables();
 
+//rest Parameters in js           //comes in es6
+function hello(...allArguments){
+  console.log(allArguments);
+}
+hello ('hello', 'world', 'welcome')
+
+
 /* =========== Arrays and its methods in Javascript ============ */
 
 //let fruits = new Array;    //optional not compulsory to write this
@@ -366,8 +374,14 @@ console.log(
   `Our Neighbouring countries are ${one}, ${two}, ${three}, ${four}, ${five}`
 );
 
+//spread operator
 let moreNeighbouringCountries = [...countries, "china", "japan"];
 console.log(moreNeighbouringCountries);
+
+//new Set Unique Values 
+let firstSet = [1,1,3,4,5,2,3];
+let newSetOfArray = new Set(firstSet);
+console.log(newSetOfArray);
 
 /* =========== Strings and its methods in Javascript ============ */
 
@@ -631,3 +645,125 @@ let setIntervalRefernce = setInterval(() => {         //run every 1 second again
 //clearInterval(setIntervalRefernce);           //for stop execution
 
 /* =========== OOPs In Javascript ============ */
+
+let details = {
+  name : 'tanu',
+  age : 20,
+  qualification : 'graducation',
+  getData : function(){
+    console.log(`my name is ${this.name} my age is ${this.age} i have done ${this.qualification}`);
+  }
+}
+details.getData();
+
+//using es6 method
+let bioData = {
+  name: 'tanu',
+  getData(){                
+      console.log(`my name is ${this.name}`);
+  }
+} 
+bioData.getData();
+
+//nested object
+let bioData2 = {
+  fullName : {
+      firstname:'tanu',
+      lastname : 'yadav'
+  },
+  age : 21,
+}
+console.log(bioData2.fullName.firstname);
+console.log(bioData2.fullName.lastname);
+console.log(bioData2.age);
+
+//This object 
+console.log(this);    //it returns window object
+
+function testingThisObj (){
+  return this;      //it returns window object
+}
+console.log(testingThisObj());
+
+let thisObjTestinginObj = {
+  myAge : 100,
+  getAll (){
+    console.log(this);    //it return current object which is thisObjTestinginObj
+  }
+}
+thisObjTestinginObj.getAll();
+
+let thisObjTestinginObj2 = {
+  myAge2 : 100,
+  getAll2:  () => {
+    console.log(this);    //it return window object bcoz of arrow function 
+  }
+}
+thisObjTestinginObj2.getAll2();
+
+//Object Destructing  comes in es6
+let objDEstructing = {
+  myNameIs:'tanu',
+  myAgeIs : 20
+}
+let {myNameIs , myAgeIs} = objDEstructing;
+console.log(myNameIs + myAgeIs)
+
+//object properties comes in es6
+let frutiName = 'Name of fruit';
+let fruitName2 = {[frutiName]: 'Mango'}     
+console.log(fruitName2);
+
+let cricketor = 'virat kohli';
+let tenis = 'sania mirza';
+let players = {cricketor,tenis}
+console.log(players);
+
+//Speard Operators
+let abcd = {name: 'tanu'} 
+let bcde = {...abcd, age:20}
+console.log(bcde);
+
+/* =========== EcmaScript => ES5 To ES11 ============ */
+let letVariable = "i am let variable comes in es6";
+console.log(letVariable);
+const constVarialbe = "i am const variable comes in es6";
+console.log(constVarialbe);
+console.log(` I am Template String ${5 + 5}`);
+function iAmDefaultArgument (Name = "tanu"){
+  return `my name is ${Name}`;
+}
+console.log(iAmDefaultArgument());
+let arrayDestructing = [1,2,3,4,5];
+let [first,second,third,fourth,fifth] = arrayDestructing;
+console.log(`1st index value is ${first} and three index value is ${third}`);
+
+let objectDestruting = {title:'henry poter', desc:'yay!hello all'}
+let {title, desc} = objectDestruting;
+console.log(`the title of the book is ${title} and description is ${desc}`);
+
+let MySchool = 'school';
+let objProperties = {[MySchool] : 'SSVM'}
+console.log(objProperties);
+
+let school = 'SSVM';
+let objProperties2 = {school}
+console.log(objProperties2);
+
+let iAmArrowFunction = (msg) => `Welcome from ${msg}`;
+console.log(iAmArrowFunction('Arrow Function'));
+
+let iAmSpeardOperator = {...objectDestruting, message: 'i am spread operator'}
+console.log(iAmSpeardOperator);
+
+let iAmSpeardOperatorInArray = [...arrayDestructing, 6,7,8,9,10];
+console.log(iAmSpeardOperatorInArray);
+
+let restParameterInFunction = (...allParams) => {
+  return allParams;
+}
+console.log(restParameterInFunction('hello','everyone','welcome','i','am','rest','parameter'));
+
+console.log(`exponential operator of 3 in 3times is ${3 ** 3}`);
+console.log(arrayDestructing.includes(3));
+

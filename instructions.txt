@@ -311,6 +311,15 @@
         }
         defaultArugumentFunction( 4 );
 
+    10. Rest parameters In Functions            //it comes in es6 part 
+        The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript.
+
+            function hello(...allArguments){
+                console.log(allArguments);
+            }
+            hello ('hello', 'world', 'welcome')
+
+
 11. Arrays In Javascript
     var myArray = ["apple", "ball", "cat", 10];
     rules: array always start counting from 0 index number.
@@ -324,6 +333,7 @@
     5. Map(), reduce(), Filter() method in brief.
     6. Array Destructing                        //It comes in ES6 Part
     7. Spread Operators                         //It comes in ES6 Part
+    8. new Set Only Find Unique Values in Array 
 
     Ways to declare Array are- 
         var fruits = new Array;    //optional not compulsory to write this
@@ -499,6 +509,14 @@
         for example 
             let num = [1,2,3,4,5];
             let moreNum = [...num, 6,7,8,9,10]
+
+    8. new Set
+        Returns Only Unique Value if Duplicate then gives only one .
+
+        let firstSet = [1,1,3,4,5,2,3];
+        let newSetOfArray = new Set(firstSet);
+        console.log(newSetOfArray);
+        output is {1, 3, 4, 5, 2}
 
 12. Strings In Javascript
     ways to declare string are- 
@@ -837,6 +855,186 @@
         clearInterval(setIntervalFun);      //to stop setInterval function
 
 18. OOPS In JavaScript
+    1. What is object Literals 
+    2. What is "this" object
+    3. Object Destructing 
+    4. Object properties
+
+    1. Object literal => is simply key : values pair data structure. Storing Variables and methods functions stored in one container. 
+
+    example=> 
+        let bioData = {
+            name: 'tanu',
+            age : 21,
+            getData : function (){
+                console.log(`my name is ${this.name} nd age is ${this.age}`);
+            }
+        } 
+        bioData.getData();
+
+        note => After Es6 methods in object like this 
+           let bioData = {
+                name: 'tanu',
+                getData(){                
+                    console.log(`my name is ${this.name}`);
+                }
+            } 
+            bioData.name;
+            bioData.getData();
+
+        Nested Objects => 
+            let bioData = {
+                fullName : {
+                    firstname:'tanu',
+                    lastname : 'yadav'
+                },
+                age : 21
+            }
+            bioData.fullName.firstname;
+            bioData.fullName.lastname;
+
+    2. What is This object
+        The defination of this object is that it contains the current context. the this object has different values depends on where it is placed.
+
+        console.log(this);          //it returns window object 
+
+        function testingThisObj (){
+            return this;      //it returns window object
+        }
+
+        let thisObjTestinginObj = {
+            myAge : 100,
+            getAll (){
+                console.log(this);    //it return current object which is thisObjTestinginObj
+            }
+        }
+
+        let thisObjTestinginObj = {
+            myAge : 100,
+            getAll: function (){
+                console.log(this);    //it also return current object which is thisObjTestinginObj
+            }
+        }
+
+        let thisObjTestinginObj2 = {
+            myAge2 : 100,
+            getAll2:  () => {
+                console.log(this);    //it return window object bcoz of arrow function 
+            }
+        }
+
+        note => the this object will not work with arrow functions. if using arrow function it always return window object.
+
+
+    3. Object Destructing               //It Comes in ES6 Part  
+        object Destructing                  
+        let data = {
+            name:'tanu',
+            age : 20
+        }
+        let {name , age} = data;
+        console.log(name + age)
+
+    4. Object properties
+        Object properties 
+            let myName = 'name';
+            let data = {[myName]: 'tanu'}
+            output is {name : 'tanu'}
+                    
+            let cricketor = 'virat kohli';
+            let tenis = 'sania mirza';
+            let players = {cricketor,tenis}
+            console.log(players);
+            output is {cricketor : 'virat kohli', tenis : 'sania mirza'}
+    
+    5. Spread Operators 
+        let abcd = {name: 'tanu'} 
+        let bcde = {...abcd, age:20}
+        console.log(bcde);          output is : {name : 'tanu', age : 20}
+
+19. ECMAScript (Modern Javascript) ES6 (Ecmascript - 2015) to ES11 (Ecmascript - 2020)
+        ES5 (Ecmascript 2009) 
+            Most Important Feature comes in this update is use strict
+            use strict is a feature which is used to write code in strict mode.
+            It must Be write at the top of the js file like this "use strict";
+            
+            "use strict";
+        
+        ES6 (Ecmascript 2015)
+            In this year most Important Features comes.
+            1) let and const variable 
+            2) Template strings
+            3) Default Arguements 
+            4) Destructing 
+            5) object properties 
+            6) Arrow Functions 
+            7) Spread Operators
+            8) Rest Parameters 
+
+                1) let,const => let name = "tanu" const pi = 3.147;
+
+                2) template string => console.log(`My name is ${name}`);
+
+                3) default arguments => 
+                    let add = (a = 10, b) => {
+                        console.log(a + b)
+                    }
+                    add(4)
+
+                4) Destructing - Array and object Destructing
+                    Array Destructing
+                        let numbers = ['tanu', '20', 'BBA'];
+                        let [name, age, qualification, surname="ahir"] = numbers;
+                        console.log(name + surname + age + qualification);
+                    object Destructing 
+                        let data = {
+                            name : 'tanu',
+                            age : 20,
+                            qualification : 'bba'
+                        }
+                        let {name, age, qualification} = data;
+                        console.log(name + age + qualification);
+
+                5) Object properties 
+                    let myName = 'name';
+                    let data = {[myName]: 'tanu'}
+                        output is {name : 'tanu'}
+                    
+                    let cricketor = 'virat kohli';
+                    let tenis = 'sania mirza';
+                    let players = {cricketor,tenis}
+                    console.log(players);
+                
+                6) Arrow Functions 
+                    let func = () => {
+                        return "welcome from arrow function";
+                    }
+                
+                7) Spread Operators 
+                    //Used To join 1 array or object in second one 
+
+                    let a = {name: 'tanu'} 
+                    let b = {...a, age:20}
+
+                    let a = [mango, apple];
+                    let b =[...a, orange];
+
+                8) Rest Parameters In Functions 
+                    function hello(...allArguments){
+                        console.log(allArguments);
+                    }
+                    hello ('hello', 'world', 'welcome')
+
+
+        ES7 (Ecmascript 2016)
+            In this year 2 Important features comes. 
+            1) Exponential Operator 
+                power for example => (5 ** 5); output is 3125
+            2) Includes
+                myArray.includes('mango'); //return true and false check is present or not
+
+        ES8 (Ecmascript 2017)
+            
 
 
 
