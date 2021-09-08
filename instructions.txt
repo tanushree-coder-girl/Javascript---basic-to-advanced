@@ -113,14 +113,16 @@
         var is_available = true;    var is_available = false;
     5. NULL
         var nullvariable = null;
-    6. Bigint  //Important Note: We will discuss about bigint in ES6 part on line no: 
-    7. Symbol // Important Note: We will discuss about symbol later in ES6 part on line no: 
+    6. Bigint  //It comes in Ecmascript 2020 
+            const num = 9007199254742091n;
+            console.log(typeof(num))        //bigInt
+    7. Symbol
     8. nan
         nan or not a number is a property of global object in other words it is a varialbe in global scope. The initial Value of Nan is not a number. 
 
-    for check data type of a varialbe use typeOf(varialbeName);
+    for check data type of a varialbe use typeof(varialbeName);
     Note : object and arrays are also called data types
-    Important Note: We will discuss about array and objects later in array and object portion on line no: 
+    Important Note: We will discuss about array and objects later in array and object portion on line no: array in 325 line number and object in 859 line number
 
 7. Expressions And operator
     10 + 5 = > This is Called An Expression
@@ -1034,9 +1036,42 @@
                 myArray.includes('mango'); //return true and false check is present or not
 
         ES8 (Ecmascript 2017)
-            
+            1) padStart();
+            2) padEnd();
+            3) object.entries();
+            4) object.values();
 
+            padStart and padEnd
+                let messagee = 'Hello i am a string';
+                messagee.padStart(10);          //for padding in start
+                messagee.padEnd(10);            //for padding in end
 
+            object.entries and object.values 
+                let myObj = {tofee:'melody',icecream:'vanilla'}
+                Object.values(myObj);           //return values only
+                Object.entries(myObj);          //return both in array form
 
+        ES9 (Ecmascript 2018)
+            1) object Destructing 
+             let {a,b,c, …object} = myNewObject
 
+        ES10 (Ecmascript 2019)
+            1) flat 
+            2) Object.fromEntries();            //converting an array into object
+            3) object spread operator
+
+            let flatthisArray = [1,[2,3,[4,5],6,7],8]
+            console.log(flatthisArray.flat(Infinity));
+            console.log(Object.fromEntries(myNewArray));  //it converts an array in object
+            let a = {name: 'tanu'} 
+            let b = {...a, age:20}     //spread operator
+
+        ES11 (Ecmascript 2020)
+            1) Bigint
+            const num = 9007199254742091n;
+            console.log(typeof(num))        //bigInt
+
+20. Advanced JavaScript
+
+  
 ---------------------------------------------------End--------------------------------------------------------------

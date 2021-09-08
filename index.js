@@ -359,6 +359,9 @@ let flatArray = arrayInArray.reduce((accumulator, currentValue) => {
 });
 console.log(flatArray);
 
+//Flat an array using flat method es10 part 
+console.log(arrayInArray.flat(Infinity));
+
 //Map Method Chaining System Example
 let allNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50];
 let methodChaining = allNumbers
@@ -725,6 +728,7 @@ let bcde = {...abcd, age:20}
 console.log(bcde);
 
 /* =========== EcmaScript => ES5 To ES11 ============ */
+
 let letVariable = "i am let variable comes in es6";
 console.log(letVariable);
 const constVarialbe = "i am const variable comes in es6";
@@ -766,4 +770,29 @@ console.log(restParameterInFunction('hello','everyone','welcome','i','am','rest'
 
 console.log(`exponential operator of 3 in 3times is ${3 ** 3}`);
 console.log(arrayDestructing.includes(3));
+
+let messagee = 'Hello i am a string';
+console.log(messagee.padStart(10));
+console.log(messagee.padEnd(10));
+let myObj = {tofee:'melody',icecream:'vanilla'}
+console.log(Object.values(myObj));  //it returns only values
+let myNewArray = Object.entries(myObj); //it return both in array format
+console.log(myNewArray);
+console.log(Object.fromEntries(myNewArray));  //it converts an array in object
+let flatthisArray = [1,[2,3,[4,5],6,7],8]       
+console.log(flatthisArray.flat(Infinity));    //its flat na array
+
+//Big int
+let oldNumber = Number.MAX_SAFE_INTEGER;
+console.log(oldNumber);
+const newNumber = 9007199254742091n + 100n;
+console.log(newNumber);
+console.log(typeof(newNumber));
+
+/* =========== Advanced Javascript ============ */
+
+
+
+
+
 
