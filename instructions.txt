@@ -1072,6 +1072,102 @@
             console.log(typeof(num))        //bigInt
 
 20. Advanced JavaScript
+    1) Event Propagation (Event Bubbling, Event Capturing)
+    2) Higher Order Function and Call Back Function 
+    3) Function Currying 
+    4) CallBack Hell 
+    5) Ajax call using XML http request 
+    6) JSON 
+    7) Fetch API 
+    8) Promises 
+    9) Async - Await 
+    10) Error Handling in Js 
 
-  
+        1) Event Propagation 
+            This made determines in which order the elements receive the event. 
+            Top to Bottom => Capturing phase
+            Bottom To Top => Bubbling phase 
+
+            Event Bubbling => The event is first Captured and Handled by the innermost element then propagated to outer most .
+                let parentElement = document.querySelector('#parentElement');
+                let childElement = document.querySelector('#childElement');
+
+                parentElement.addEventListener('click',()=>{
+                    alert('Hello from parent Element');
+                });
+
+                childElement.addEventListener('click',()=>{
+                    event.stopPropagation();        //if want to stop propagation
+                    alert('Hello from Child Element');
+                });
+
+                output is when click on parent => Hello from parent element
+                when click on Child Element => Hello from Child Element 
+                                                Hello from parent Element
+                
+                Note => If want to stop propagation use 
+                        event.stopPropagation();
+               
+            Event Capturing => The event Is first Captured by the outermost element and propagated to the inner Elements 
+                let parentElement = document.querySelector('#parentElement');
+                let childElement = document.querySelector('#childElement');
+
+                parentElement.addEventListener('click',()=>{
+                    alert('Hello from parent Element');
+                },true);                //true is used for event Capturing
+
+                childElement.addEventListener('click',()=>{
+                    alert('Hello from Child Element');
+                });
+
+                output is when click on parent => Hello from parent element
+                when click on Child Element => Hello from parent Element 
+                                                Hello from Child Element
+
+            Note : in addEventListener third argument is used for event propagation
+                true is used for event Capturing  
+
+            By Default is Event Bubbling Phase 
+
+        2) Higher Order Function and Call Back Function 
+            Higher Order Function => Functions which takes another function as an argument is called HOF.
+
+            CallBack Function => Functions which get passed as an argument to another function is called CBF.
+
+            For Example => 
+                const add = (a,b) => {                  //CallBack function
+                    return a + b;
+                }
+                const substract = (a,b) => {            //CallBack function
+                    return a - b;
+                }
+                const divide = (a,b) => {               //CallBack function
+                    return a / b;
+                }
+                const multiply = (a,b) => {             //CallBack function
+                    return a * b;
+                }
+
+                const calculator = (num1, num2, operator) => {          //Higher Order function
+                    return operator (num1, num2);
+                }
+                calculator(5,2,add);
+                calculator(5,2,substract);
+                calculator(5,2,divide);
+                calculator(5,2,multiply);
+
+        In the above Example calculator is Higher order function bcoz it takes another function as an argument. And Add , substract, divide, multiply is CallBack Function bcoz it is passed as an Arguement in another function.
+
+Before moving ahead let's discuss About some Important topics that is-
+    How JavaScript Works And What is Asynchronous javascript (Async js) ? 
+    1) Hoisting in JavaScript 
+    2) Scope Chain 
+    3) Lexical Scoping in javascript 
+    4) Closures in JavaScript 
+    5) what is Asynchronous javascript programming 
+    6) What is Event Loop 
+    
+
+
+
 ---------------------------------------------------End--------------------------------------------------------------

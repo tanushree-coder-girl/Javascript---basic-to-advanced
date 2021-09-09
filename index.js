@@ -791,6 +791,55 @@ console.log(typeof(newNumber));
 
 /* =========== Advanced Javascript ============ */
 
+//1.Event Propagation 
+//Event Bubblig phase is by DEfault
+let parentElement = document.querySelector('#parentElement');
+let childElement = document.querySelector('#childElement');
+
+//Event Bubbling 
+// parentElement.addEventListener('click',()=>{
+//   alert('Hello from parent Element');
+// });
+
+// childElement.addEventListener('click',()=>{
+//   event.stopPropagation();    //if want to stop propagation use this 
+//   alert('Hello from Child Element');
+// });
+
+//Event Capturing 
+parentElement.addEventListener('click',()=>{
+  alert('Hello from parent Element');
+},true);      //true is used for event capturing
+
+childElement.addEventListener('click',()=>{
+  alert('Hello from Child Element');
+});
+
+//2. Higher Order Function or callback function
+const adding = (a,b) => {                  //CallBack function
+  return a + b;
+}
+const substract = (a,b) => {            //CallBack function
+  return a - b;
+}
+const divide = (a,b) => {               //CallBack function
+  return a / b;
+}
+const multiply = (a,b) => {             //CallBack function
+  return a * b;
+}
+
+const calculator = (num1, num2, operator) => {          //Higher Order function
+  return operator (num1, num2);
+}
+console.log(calculator(5,2,adding));
+console.log(calculator(5,2,substract));
+console.log(calculator(5,2,divide));
+console.log(calculator(5,2,multiply));
+
+
+
+
 
 
 
