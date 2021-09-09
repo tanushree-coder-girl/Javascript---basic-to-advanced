@@ -1161,13 +1161,55 @@
 Before moving ahead let's discuss About some Important topics that is-
     How JavaScript Works And What is Asynchronous javascript (Async js) ? 
     1) Hoisting in JavaScript 
-    2) Scope Chain 
-    3) Lexical Scoping in javascript 
-    4) Closures in JavaScript 
-    5) what is Asynchronous javascript programming 
-    6) What is Event Loop 
+    2) Scope Chain and Lexical Scoping in javascript 
+    3) Closures in JavaScript 
+    4) what is Asynchronous javascript programming 
+    5) What is Event Loop 
     
+        1) Hoisting In javascript 
+            Creation phase and execution phase. It means all the variable and functions are moved to the top of their scope before the code execution. It will only works before ES6 now it not works with let or const keyword. it only works with var keyword. ecma script or modern javascript does not support Hoisting.
 
+                console.log(iAmAVarVarialbe);
+                var iAmAVarVarialbe;
+
+        2) Scope Chain and Lexical scopping in js
+            Scope => Scope in JavaScript refers to the accessibility or visibility of variables. That is, which parts of a program have access to the variable or where the variable is visible.
+
+            Lexical scopping => Inner Function Can Access data of parents / outer functions but parent cannot access data of its inner function variables. 
+
+            Example=> 
+            let myGlobalVarialble = 'Hello, i am global variable';
+
+                let outerFunction = () => {
+                    let outerFunctionVarialbe = 'Hello i am in outer function variable';
+
+                    console.log(myGlobalVarialble);
+                    console.log(outerFunctionVarialbe);
+                    //console.log(innerFunctionVarialbe);  //cannot acess bcoz i am inside inner function gives errors
+
+                    let innerFunction = () => {
+                        let innerFunctionVarialbe = 'Hello i am in inner function variable';
+
+                        console.log(myGlobalVarialble);
+                        console.log(outerFunctionVarialbe);
+                        console.log(innerFunctionVarialbe);
+                    }
+                    innerFunction();
+                }
+                outerFunction();
+
+                console.log(myGlobalVarialble);
+                //console.log(outerFunctionVarialbe); //cannot acess bcoz i am inside function gives errors
+                //console.log(innerFunctionVarialbe);  //cannot acess bcoz i am inside function gives errors
+
+        3) Closures In JavaScript 
+            A Closure is the Combination of a function bundled together (enclosed) with reference to its sorrounding state (the lexical environment).
+
+            In Other Words , a Closure gives you access to an outer function.s scope from an inner functions.
+            In js , Closures are created everytime a function is created , at function time. 
+
+            example =>
+             
 
 
 ---------------------------------------------------End--------------------------------------------------------------

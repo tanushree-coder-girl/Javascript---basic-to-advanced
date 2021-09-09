@@ -838,6 +838,56 @@ console.log(calculator(5,2,divide));
 console.log(calculator(5,2,multiply));
 
 
+//=========================================================//
+
+//Before moving ahead let's discuss About some Important topics that is-
+//How JavaScript Works And What is Asynchronous javascript (Async js) ? 
+
+//1) Hoisting in JavaScript 
+console.log(iAmAVarVarialbe);
+var iAmAVarVarialbe = 5;
+console.log(iAmAVarVarialbe);
+
+//it executes like this
+//var iAmAVarVarialbe;
+//console.log(iAmAVarVarialbe);  so the output is undefined
+//var iAmAVarVarialbe = 5;
+//console.log(iAmAVarVarialbe);  the output  is 5
+
+//2. Scope Chain Lexical scopping 
+let myGlobalVarialble = 'Hello, i am global variable';
+
+let outerFunction = () =>{
+  let outerFunctionVarialbe = 'Hello i am in outer function variable';
+  console.log(myGlobalVarialble);
+  console.log(outerFunctionVarialbe);
+  //console.log(innerFunctionVarialbe);  //cannot acess bcoz i am inside inner function gives errors
+
+
+  let innerFunction = () => {
+    let innerFunctionVarialbe = 'Hello i am in inner function variable';
+    console.log(myGlobalVarialble);
+    console.log(outerFunctionVarialbe);
+    console.log(innerFunctionVarialbe);
+
+  }
+  innerFunction();
+
+}
+outerFunction();
+console.log(myGlobalVarialble);
+//console.log(outerFunctionVarialbe); //cannot acess bcoz i am inside function gives errors
+//console.log(innerFunctionVarialbe);  //cannot acess bcoz i am inside function gives errors
+
+//3) Closures in Javascript 
+
+
+
+
+
+
+
+
 
 
 
