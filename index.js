@@ -226,10 +226,10 @@ function checkVariables() {
 checkVariables();
 
 //rest Parameters in js           //comes in es6
-function hello(...allArguments){
+function hello(...allArguments) {
   console.log(allArguments);
 }
-hello ('hello', 'world', 'welcome')
+hello('hello', 'world', 'welcome')
 
 
 /* =========== Arrays and its methods in Javascript ============ */
@@ -382,7 +382,7 @@ let moreNeighbouringCountries = [...countries, "china", "japan"];
 console.log(moreNeighbouringCountries);
 
 //new Set Unique Values 
-let firstSet = [1,1,3,4,5,2,3];
+let firstSet = [1, 1, 3, 4, 5, 2, 3];
 let newSetOfArray = new Set(firstSet);
 console.log(newSetOfArray);
 
@@ -549,44 +549,44 @@ para.style.color = "red";
 console.log(document.getElementsByClassName('paragraph'));
 console.log(document.getElementsByTagName('h1'));
 console.log(document.getElementsByName('firstname'));
-document.querySelector('h1').style.color="blue";
-document.querySelector('.paragraph').style.color="brown";
-document.querySelector('#myPara').style.backgroundColor="pink";
-console.log( document.querySelectorAll('ul .list-item'));
+document.querySelector('h1').style.color = "blue";
+document.querySelector('.paragraph').style.color = "brown";
+document.querySelector('#myPara').style.backgroundColor = "pink";
+console.log(document.querySelectorAll('ul .list-item'));
 
 /* =========== Events In Javascript ============ */
 
 //Html is on index.html file on line number 22 to 
 
 //2. by Calling A Function
-function showMe (){
+function showMe() {
   alert('Hello wolrd')
 }
 
 //3. element.onclick
 const myBtn = document.getElementById('myBtn');
-myBtn.onclick = function (){
+myBtn.onclick = function () {
   alert('hello everyone');
 }
 
 const myBtnn = document.getElementById('myBtn');
-myBtnn.onclick = function (){
+myBtnn.onclick = function () {
   alert('hello everyone2');
 }
 
 //4. using event listeners 
 let myBtn2 = document.getElementById('myBtn2');
-myBtn2.addEventListener('click',()=>{
+myBtn2.addEventListener('click', () => {
   alert('hello i am event listener');
 });
 
 let myBtn3 = document.getElementById('myBtn2');
-myBtn3.addEventListener('click',()=>{
+myBtn3.addEventListener('click', () => {
   alert('hello i am event listener2');
 });
 
 //event object 
-let eventObj = (event)=> {
+let eventObj = (event) => {
   console.log(event);
   console.log(event.type);
   console.log(event.target);
@@ -594,28 +594,28 @@ let eventObj = (event)=> {
 document.querySelector('.eventobj').addEventListener('click', eventObj);
 
 //Mouse Events 
-let mouseEnter = ()=>{
+let mouseEnter = () => {
   console.log('mouse is entered');
 }
-let mouseLeave = ()=>{
+let mouseLeave = () => {
   console.log('mouse is leaved');
 }
-let mouseUp = ()=>{
+let mouseUp = () => {
   console.log('mouse is up');
 }
-let mouseDown = ()=>{
+let mouseDown = () => {
   console.log('mouse is down');
 }
 
 //Keyboards Events 
 let input = document.querySelector('.keyboardEvents');
-input.addEventListener('keypress', ()=>{
+input.addEventListener('keypress', () => {
   console.log('key is pressed');
 });
-input.addEventListener('keyup', ()=>{
+input.addEventListener('keyup', () => {
   console.log('key is up');
 });
-input.addEventListener('keydown', ()=>{
+input.addEventListener('keydown', () => {
   console.log('key is down');
 });
 
@@ -626,7 +626,7 @@ const inputHandler = () => {
 }
 
 //another way to use onCHange function is 
-document.querySelector('.keyboardEvents').addEventListener('change',()=>{
+document.querySelector('.keyboardEvents').addEventListener('change', () => {
   let inputBox = document.querySelector('.keyboardEvents').value;
   alert(inputBox);
 });
@@ -650,10 +650,10 @@ let setIntervalRefernce = setInterval(() => {         //run every 1 second again
 /* =========== OOPs In Javascript ============ */
 
 let details = {
-  name : 'tanu',
-  age : 20,
-  qualification : 'graducation',
-  getData : function(){
+  name: 'tanu',
+  age: 20,
+  qualification: 'graducation',
+  getData: function () {
     console.log(`my name is ${this.name} my age is ${this.age} i have done ${this.qualification}`);
   }
 }
@@ -662,19 +662,19 @@ details.getData();
 //using es6 method
 let bioData = {
   name: 'tanu',
-  getData(){                
-      console.log(`my name is ${this.name}`);
+  getData() {
+    console.log(`my name is ${this.name}`);
   }
-} 
+}
 bioData.getData();
 
 //nested object
 let bioData2 = {
-  fullName : {
-      firstname:'tanu',
-      lastname : 'yadav'
+  fullName: {
+    firstname: 'tanu',
+    lastname: 'yadav'
   },
-  age : 21,
+  age: 21,
 }
 console.log(bioData2.fullName.firstname);
 console.log(bioData2.fullName.lastname);
@@ -683,22 +683,22 @@ console.log(bioData2.age);
 //This object 
 console.log(this);    //it returns window object
 
-function testingThisObj (){
+function testingThisObj() {
   return this;      //it returns window object
 }
 console.log(testingThisObj());
 
 let thisObjTestinginObj = {
-  myAge : 100,
-  getAll (){
+  myAge: 100,
+  getAll() {
     console.log(this);    //it return current object which is thisObjTestinginObj
   }
 }
 thisObjTestinginObj.getAll();
 
 let thisObjTestinginObj2 = {
-  myAge2 : 100,
-  getAll2:  () => {
+  myAge2: 100,
+  getAll2: () => {
     console.log(this);    //it return window object bcoz of arrow function 
   }
 }
@@ -706,25 +706,25 @@ thisObjTestinginObj2.getAll2();
 
 //Object Destructing  comes in es6
 let objDEstructing = {
-  myNameIs:'tanu',
-  myAgeIs : 20
+  myNameIs: 'tanu',
+  myAgeIs: 20
 }
-let {myNameIs , myAgeIs} = objDEstructing;
+let { myNameIs, myAgeIs } = objDEstructing;
 console.log(myNameIs + myAgeIs)
 
 //object properties comes in es6
 let frutiName = 'Name of fruit';
-let fruitName2 = {[frutiName]: 'Mango'}     
+let fruitName2 = { [frutiName]: 'Mango' }
 console.log(fruitName2);
 
 let cricketor = 'virat kohli';
 let tenis = 'sania mirza';
-let players = {cricketor,tenis}
+let players = { cricketor, tenis }
 console.log(players);
 
 //Speard Operators
-let abcd = {name: 'tanu'} 
-let bcde = {...abcd, age:20}
+let abcd = { name: 'tanu' }
+let bcde = { ...abcd, age: 20 }
 console.log(bcde);
 
 /* =========== EcmaScript => ES5 To ES11 ============ */
@@ -734,39 +734,39 @@ console.log(letVariable);
 const constVarialbe = "i am const variable comes in es6";
 console.log(constVarialbe);
 console.log(` I am Template String ${5 + 5}`);
-function iAmDefaultArgument (Name = "tanu"){
+function iAmDefaultArgument(Name = "tanu") {
   return `my name is ${Name}`;
 }
 console.log(iAmDefaultArgument());
-let arrayDestructing = [1,2,3,4,5];
-let [first,second,third,fourth,fifth] = arrayDestructing;
+let arrayDestructing = [1, 2, 3, 4, 5];
+let [first, second, third, fourth, fifth] = arrayDestructing;
 console.log(`1st index value is ${first} and three index value is ${third}`);
 
-let objectDestruting = {title:'henry poter', desc:'yay!hello all'}
-let {title, desc} = objectDestruting;
+let objectDestruting = { title: 'henry poter', desc: 'yay!hello all' }
+let { title, desc } = objectDestruting;
 console.log(`the title of the book is ${title} and description is ${desc}`);
 
 let MySchool = 'school';
-let objProperties = {[MySchool] : 'SSVM'}
+let objProperties = { [MySchool]: 'SSVM' }
 console.log(objProperties);
 
 let school = 'SSVM';
-let objProperties2 = {school}
+let objProperties2 = { school }
 console.log(objProperties2);
 
 let iAmArrowFunction = (msg) => `Welcome from ${msg}`;
 console.log(iAmArrowFunction('Arrow Function'));
 
-let iAmSpeardOperator = {...objectDestruting, message: 'i am spread operator'}
+let iAmSpeardOperator = { ...objectDestruting, message: 'i am spread operator' }
 console.log(iAmSpeardOperator);
 
-let iAmSpeardOperatorInArray = [...arrayDestructing, 6,7,8,9,10];
+let iAmSpeardOperatorInArray = [...arrayDestructing, 6, 7, 8, 9, 10];
 console.log(iAmSpeardOperatorInArray);
 
 let restParameterInFunction = (...allParams) => {
   return allParams;
 }
-console.log(restParameterInFunction('hello','everyone','welcome','i','am','rest','parameter'));
+console.log(restParameterInFunction('hello', 'everyone', 'welcome', 'i', 'am', 'rest', 'parameter'));
 
 console.log(`exponential operator of 3 in 3times is ${3 ** 3}`);
 console.log(arrayDestructing.includes(3));
@@ -774,12 +774,12 @@ console.log(arrayDestructing.includes(3));
 let messagee = 'Hello i am a string';
 console.log(messagee.padStart(10));
 console.log(messagee.padEnd(10));
-let myObj = {tofee:'melody',icecream:'vanilla'}
+let myObj = { tofee: 'melody', icecream: 'vanilla' }
 console.log(Object.values(myObj));  //it returns only values
 let myNewArray = Object.entries(myObj); //it return both in array format
 console.log(myNewArray);
 console.log(Object.fromEntries(myNewArray));  //it converts an array in object
-let flatthisArray = [1,[2,3,[4,5],6,7],8]       
+let flatthisArray = [1, [2, 3, [4, 5], 6, 7], 8]
 console.log(flatthisArray.flat(Infinity));    //its flat na array
 
 //Big int
@@ -787,7 +787,7 @@ let oldNumber = Number.MAX_SAFE_INTEGER;
 console.log(oldNumber);
 const newNumber = 9007199254742091n + 100n;
 console.log(newNumber);
-console.log(typeof(newNumber));
+console.log(typeof (newNumber));
 
 /* =========== Advanced Javascript ============ */
 
@@ -807,35 +807,35 @@ let childElement = document.querySelector('#childElement');
 // });
 
 //Event Capturing 
-parentElement.addEventListener('click',()=>{
+parentElement.addEventListener('click', () => {
   alert('Hello from parent Element');
-},true);      //true is used for event capturing
+}, true);      //true is used for event capturing
 
-childElement.addEventListener('click',()=>{
+childElement.addEventListener('click', () => {
   alert('Hello from Child Element');
 });
 
 //2. Higher Order Function or callback function
-const adding = (a,b) => {                  //CallBack function
+const adding = (a, b) => {                  //CallBack function
   return a + b;
 }
-const substract = (a,b) => {            //CallBack function
+const substract = (a, b) => {            //CallBack function
   return a - b;
 }
-const divide = (a,b) => {               //CallBack function
+const divide = (a, b) => {               //CallBack function
   return a / b;
 }
-const multiply = (a,b) => {             //CallBack function
+const multiply = (a, b) => {             //CallBack function
   return a * b;
 }
 
 const calculator = (num1, num2, operator) => {          //Higher Order function
-  return operator (num1, num2);
+  return operator(num1, num2);
 }
-console.log(calculator(5,2,adding));
-console.log(calculator(5,2,substract));
-console.log(calculator(5,2,divide));
-console.log(calculator(5,2,multiply));
+console.log(calculator(5, 2, adding));
+console.log(calculator(5, 2, substract));
+console.log(calculator(5, 2, divide));
+console.log(calculator(5, 2, multiply));
 
 
 //=========================================================//
@@ -857,7 +857,7 @@ console.log(iAmAVarVarialbe);
 //2. Scope Chain Lexical scopping 
 let myGlobalVarialble = 'Hello, i am global variable';
 
-let outerFunction = () =>{
+let outerFunction = () => {
   let outerFunctionVarialbe = 'Hello i am in outer function variable';
   console.log(myGlobalVarialble);
   console.log(outerFunctionVarialbe);
@@ -880,7 +880,95 @@ console.log(myGlobalVarialble);
 //console.log(innerFunctionVarialbe);  //cannot acess bcoz i am inside function gives errors
 
 //3) Closures in Javascript 
+let outerFun = (a) => {
+  let b = 10;
+  const innerFun = () => {
+    //console.log(a + b);
+    return a + b;
+  }
+  //innerFun();
+  return innerFun;
+}
+//outerFun(5);
+let checkClosure = outerFun(5);
+console.log(checkClosure());
+console.dir(checkClosure);
 
+//4) asychronous js example 
+console.log('Hello everone');
+setTimeout(() => {
+  console.log('i am settimeout function run after 5 seconds but it does not block other code');
+}, 5000)
+console.log('I am next after st timeout ');
+
+//The output of this code is 
+//Hello everone
+//I am next after st timeout 
+//i am settimeout function run after 5 seconds but it does not block other code
+
+//5) What is Event Loop
+//all code comes for execution in execution stak when there is a code which must be run later so it moved in web apis section then when it times turn comes then it moved in message queue then message queue passed it to the execution stack and finally code is executed . 
+
+//=========================================================//
+
+//Advanced javascript
+//3) Function Currying 
+suming(3)(5)(8)
+function suming(a) {
+  return function (b) {
+    return function (c) {
+      console.log(a + b + c);
+    }
+  }
+}
+
+let currying = (a) => (b) => (c) => console.log(` The sum of ${a} , ${b}, ${c} is ${a + b + c}`);
+currying(3)(5)(10)
+
+
+//4) CallBack Hell 
+function callBackHell1() {
+  console.log('welcome1')
+  function callBackHell2() {
+    console.log('welcome2')
+    function callBackHell3() {
+      console.log('welcome3')
+      function callBackHell4() {
+        console.log('welcome4')
+        function callBackHell5() {
+          console.log('welcome5')
+          function callBackHell6() {
+            console.log('welcome6')
+            function callBackHell7() {
+              console.log('welcome7')
+              function callBackHell8() {
+                console.log('welcome8')
+                function callBackHell9() {
+                  console.log('welcome9')
+                  function callBackHell10() {
+                    console.log('welcome10')
+                  }
+                  callBackHell10();
+                }
+                callBackHell9();
+              }
+              callBackHell8();
+            }
+            callBackHell7();
+          }
+          callBackHell6();
+        }
+        callBackHell5();
+      }
+      callBackHell4();
+    }
+    callBackHell3();
+  }
+  callBackHell2();
+}
+callBackHell1();
+
+//5) Ajax Call Using XML Https Request
 
 
 

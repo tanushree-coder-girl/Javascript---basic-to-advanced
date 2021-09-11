@@ -1158,6 +1158,7 @@
 
         In the above Example calculator is Higher order function bcoz it takes another function as an argument. And Add , substract, divide, multiply is CallBack Function bcoz it is passed as an Arguement in another function.
 
+=========================================================================
 Before moving ahead let's discuss About some Important topics that is-
     How JavaScript Works And What is Asynchronous javascript (Async js) ? 
     1) Hoisting in JavaScript 
@@ -1208,8 +1209,134 @@ Before moving ahead let's discuss About some Important topics that is-
             In Other Words , a Closure gives you access to an outer function.s scope from an inner functions.
             In js , Closures are created everytime a function is created , at function time. 
 
-            example =>
-             
+            example => 1)
+                const outerFun = (a) => {
+                    let b = 10; 
+                    const innerFun () => {
+                        console.log(a + b);
+                    }
+                    innerFun();
+                }
+                outerFun(5);
+
+            example => 2)
+                const outerFun = (a) => {
+                    let b = 10; 
+                    const innerFun () => {
+                    return a + b;
+                    }
+                    return innerFun;
+                }
+                let checkClosure = outerFun(5);
+                console.log(checkClosure());
+                console.dir(checkClosure);
+
+        4) what is Asynchronous javascript programming 
+            Asynchronous JavaScript => Asynchronous code allows the program to be executed immediately wheras
+            Synchnchronous code will block further execution of the remaining code until it finishes the current one . 
+            Asynchronous works on non-blocking i.o model.
+
+            Example => 
+            console.log('Hello everone');
+            setTimeout(()=>{
+            console.log('i am settimeout function run after 5 seconds but it does not block other code');
+            },5000)
+            console.log('I am next after st timeout '); 
+
+            in this example set timeout function run after 5 seconds so it executes next line of code it does not block other code
+            //The output of this code is 
+                Hello everone
+                I am next after st timeout 
+                i am settimeout function run after 5 seconds but it does not block other code
+                                    
+        5) What is Event Loop 
+            The Event Loop is the Secret by which javascript gives us an illusion of being multithreaded even through its single threaded. 
+            Here the Callback Function in the event queue has not run yet and its waiting for its time into the stack when the set timeout is being executed and the web api is making the mentioned wait. 
+
+            Javascript Event Loop 
+
+            Execution Stack               ==========> Web Apis (AJAX/API CALLS) (Settimeout function)
+            (global Execution context)                          ||
+                                                                ||
+                                                                ||
+                                                                ||
+                                                                ||
+                                                <==========  message Queue
+
+            In this diagram 
+
+            All code comes in THe Execution Stack and executed 
+            if It Has Settimeout function which must be run after 5 seconds 
+            so settimeout is moved from Execution Stack to WEB APIs 
+            then after 5 seconds Settimeout is moved in Message Queue 
+            Then message queue return settimeout to The Execution Stack
+            and finally set timeout is executed. 
+
+=========================================================================
+
+Advanced JavaScript 
+        3) Function Currying 
+            Currying is a technique of evaluating function with multiple arguments, into sequence of functions with single argument.In other words, when a function, instead of taking all arguments at one time, takes the first one and return a new function that takes the second one and returns a new function which takes the third ...
+
+            for example => 
+            sum (3) (5) (8)
+            function sum (a) {
+                return function (b) {
+                    return function (c){
+                        console.log( a + b + c);
+                    }
+                }
+            }
+
+            with the help of arrow function for example => 
+            let sum = (a) => {
+                return (b) => {
+                    return (c) => {
+                        console.log(a , b, c);
+                    }
+                }
+            }
+            sum (3) (5) (8)
+
+            with the help of arrow function also write in one line for example => 
+                let sum = (a) => (b) => (c) => console.log(a , b, c);
+                sum (3) (5) (8)
+            
+        4) CallBack Hell 
+            It is known as a pyramid of doom , is an antipattern seen in code Asynchronous programming.
+            Example Of CallBack Hall is like this-> Lools like a pyramid 
+
+            function call1 (){
+                console.log('hello1');
+                function call2 (){
+                    console.log('hello2');
+                    function call3 (){
+                        console.log('hello3');
+                        function call4 (){
+                            console.log('hello4');
+                            function call5 (){
+                                console.log('hello5');
+                                function call6 (){
+                                    console.log('hello6');
+                                }
+                                call6();
+                            }
+                            call5();
+                        }
+                        call4();
+                    }
+                    call3();
+                }
+                call2();
+            }
+            call1();
+
+        5) AJAX Call Using XML HTTP request 
+            Full form 
+            API => Application programming Interface 
+            AJAX => Asynchronous Javascript And XML 
+            
+           
 
 
 ---------------------------------------------------End--------------------------------------------------------------
