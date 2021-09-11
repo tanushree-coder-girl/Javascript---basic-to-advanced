@@ -911,10 +911,11 @@ console.log('I am next after st timeout ');
 
 //=========================================================//
 
-//Advanced javascript
-//3) Function Currying 
-suming(3)(5)(8)
-function suming(a) {
+//====================Advanced javascript=========
+
+//3) Function Currying
+functionCurrying(3)(5)(8)
+function functionCurrying(a) {
   return function (b) {
     return function (c) {
       console.log(a + b + c);
@@ -969,6 +970,34 @@ function callBackHell1() {
 callBackHell1();
 
 //5) Ajax Call Using XML Https Request
+const request = new XMLHttpRequest();
+request.open('GET', 'https://restcountries.eu/rest/v2/name/brazil');
+request.send();
+request.addEventListener('load', function () {
+  console.log(this.responseText);   //in json format 
+  const data = JSON.parse(this.responseText); // in array an object format
+  console.log(data);
+});
+
+//6) JSON 
+//1. JSON.stringify();
+let jsObj = {
+  title : 'THe Jungle book',
+  author : 'Milky Man',
+  Published_on : 'December'
+}
+let jsonFormat = JSON.stringify(jsObj);
+console.log(jsonFormat);
+
+//2) JSON.parse();
+let ObjFormat = JSON.parse(jsonFormat);
+console.log(ObjFormat);
+
+//7)Fetch API  
+
+
+
+
 
 
 

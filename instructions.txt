@@ -1336,7 +1336,50 @@ Advanced JavaScript
             API => Application programming Interface 
             AJAX => Asynchronous Javascript And XML 
             
-           
+            //https://restcountries.eu/rest/v2/name/brazil
+            an Free api for get countries data
+
+            Calling An api --
+
+            const request = new XMLHttpRequest();
+            request.open('GET', 'https://restcountries.eu/rest/v2/name/brazil'); 
+            request.send();
+
+            request.addEventListener('load', function(){
+                console.log(this.responseText);     //return in json format
+                const data = JSON.parse(this.responseText);     //convert in object of js
+                console.log(data);
+            });
+
+            Note => request.open takes two parameter 1) method like GET or POST & 2) URL of api.
+
+        6) JSON
+            here is 2 Important Methods in json. 
+            1) JSON.stringify();
+                It turns a JavaScript Object Into JSON text and stores that JSON text in a string. 
+                example => 
+
+                let jsObj = {title : 'THe Jungle book', author : 'Milky Man', Published_on : 'December'}
+
+                console.log(JSON.stringify(jsObj));
+                 //output is 
+                 {"title":"THe Jungle book","author":"Milky Man","Published_on":"December"}
+
+            2) JSON.parse(); 
+                It turns a String of Json text into a javascript object. 
+                example =>
+
+                let json = {"title":"THe Jungle book","author":"Milky Man","Published_on":"December"}
+                console.log(JSON.parse(json));
+
+                //output is 
+                 {title: 'THe Jungle book', author: 'Milky Man', Published_on: 'December'}
+
+        7) Fetch API 
+        
+
+
+
 
 
 ---------------------------------------------------End--------------------------------------------------------------

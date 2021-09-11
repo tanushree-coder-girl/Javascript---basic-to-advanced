@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API CAlling Using XML-Http Request</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: rgb(14, 13, 13);
+    overflow-x: hidden;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  }
+
+  .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    box-shadow: 10px 0 5px rgba(0, 0, 0, 0.6);
+    background-color: #fafafa;
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 1rem;
+
+  }
+
+  .card-body img {
+    height: 10rem;
+    margin: 1rem auto;
+  }
+
+  .card-body h1 {
+    font-size: 2.5rem;
+    padding: .5rem 0;
+  }
+
+  .card-body p {
+    font-size: 1.5rem;
+    margin: .2rem 0;
+  }
+
+  .card-footer h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 1rem;
+  }
+
+  .card-footer p {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+</style>
+
+<body>
+  <div class="container"></div>
+
+  <script>
+    do {
+      country = prompt('Please Enter country Name to get country detail');
+    } while (country == null || country == "");
+
+    let box = document.querySelector(".container");
+    const request = new XMLHttpRequest();
+    request.open("GET", `https://restcountries.eu/rest/v2/name/${country}`);
+    request.send();
+    request.addEventListener("load", function () {
+      //console.log(this.responseText);
+      const [data] = JSON.parse(this.responseText);
+      // console.log(data);
+      //console.log(data.capital);
+
+      const htmlData = `
+            <article class="card">
+                <div class="card-body">
+                    <img src=${data.flag} alt="" srcset="nation flag">
+                    <h1 class="card-body-title">${data.name}</h1>
+                    <p class="card-body-text">Capital : ${data.capital}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-footer-social">
+                        <h3>Native Name:  ${data.nativeName}</h3>
+                        <p>Numeric code: ${data.numericCode}</p>
+                        <p>Population: ${data.population}</p>
+                        <p>Region: ${data.region}</p>
+                    </div>
+                </div>
+            </article>
+            `;
+
+      box.insertAdjacentHTML("afterbegin", htmlData);
+    });
+  </script>
+</body>
+
+</html>
