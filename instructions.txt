@@ -764,6 +764,33 @@
         6) using querySelectorAll 
             document.querySelectorAll('.allButtons');
 
+    6). Inserting Adjacent Elements or Text or html 
+        Mainly THree methods here => 
+        1) insertAdjacentHTML(position, html tag);
+        2) insertAdjacentText(position, 'text');
+        3) insertAdjacentElement(position, element);
+
+            syntax
+            targetElement.insertAdjacentElement(position, element);
+            Legal position values are:
+            1) "afterbegin"
+            2) "afterend"
+            3) "beforebegin"
+            4) "beforeend"
+
+            let container = document.querySelector('.container');
+
+            //The insertAdjacentHTML() method inserts a text as HTML, into a specified position.
+            container.insertAdjacentHTML( 'beforebegin' , '<h1>Hello wolrd</h1>')
+
+            //The insertAdjacentText() method inserts a the specified element into a specified position.
+            container.insertAdjacentText( 'beforeend' , 'Hello i am text');
+
+
+            //The insertAdjacentElement() method inserts a the specified element into a specified position.
+            let p = document.querySelector('.pp');
+            container.insertAdjacentElement("afterend", p);
+
 16. Events In JavaScript 
     Html Events Are Things that happen to html elements. when javascript is used in html pages. JavaScript can react on these events.
 
@@ -861,6 +888,8 @@
     2. What is "this" object
     3. Object Destructing 
     4. Object properties
+    5. Spread Operators
+    6. Class and inheritence
 
     1. Object literal => is simply key : values pair data structure. Storing Variables and methods functions stored in one container. 
 
@@ -953,6 +982,70 @@
         let abcd = {name: 'tanu'} 
         let bcde = {...abcd, age:20}
         console.log(bcde);          output is : {name : 'tanu', age : 20}
+
+    6. Classes and inheritence
+        ECMAScript 2015, also known as ES6, introduced JavaScript Classes.
+        JavaScript Classes are templates for JavaScript Objects.
+        Use the keyword class to create a class.
+        Always add a method named constructor():
+
+        for example => 
+        class myClassName {
+            constructor (){
+               
+            }
+        }
+
+        //create an object of class 
+        let myClassObj = new myClassName();
+
+        Note => For constructor 
+            The constructor method is a special method:
+            It has to have the exact name "constructor"
+            It is executed automatically when a new object is created
+            It is used to initialize object properties
+
+            Class Methods
+            Class methods are created with the same syntax as object methods.
+
+            example => 
+            class data {
+                constructor (name) {
+                    this.name = name;
+                }
+
+                myMethod (){
+                    console.log("Hello i am a method in ${this.name}");
+                }
+            }
+            const dataObj = new data('class in js');
+            dataObj.myMethod();
+
+            //inheritance 
+                class A {
+                    constructor (iAm) {
+                        console.log(`I am ${iAm} Constructor`);
+                    }
+                    aMethod (what) {
+                        console.log(`A for ${what}`)
+                    }
+                }
+
+                class B extends A{
+                    constructor(iAm){
+                        super('Parents');
+                        console.log(`I am ${iAm} Constructor`);
+                    }
+                    bMethod (what) {
+                        console.log(`B for ${what}`)
+                    }
+                }
+
+                const multipleClasses = new B('child');
+                multipleClasses.aMethod('Apple');
+                multipleClasses.bMethod('Boy');
+
+            //Must Call super() method in child constructor 
 
 19. ECMAScript (Modern Javascript) ES6 (Ecmascript - 2015) to ES11 (Ecmascript - 2020)
         ES5 (Ecmascript 2009) 
@@ -1376,7 +1469,7 @@ Advanced JavaScript
                  {title: 'THe Jungle book', author: 'Milky Man', Published_on: 'December'}
 
         7) Fetch API 
-        
+            
 
 
 

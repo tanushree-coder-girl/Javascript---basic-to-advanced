@@ -554,6 +554,28 @@ document.querySelector('.paragraph').style.color = "brown";
 document.querySelector('#myPara').style.backgroundColor = "pink";
 console.log(document.querySelectorAll('ul .list-item'));
 
+//6. insertAdjacentElement and html 
+let container = document.querySelector('.container');
+
+//syntax
+//targetElement.insertAdjacentElement(position, element);
+//Legal position values are:
+//"afterbegin"
+//"afterend"
+//"beforebegin"
+//"beforeend"
+
+//The insertAdjacentHTML() method inserts a text as HTML, into a specified position.
+container.insertAdjacentHTML( 'beforebegin' , '<h1>Hello wolrd</h1>')
+
+//The insertAdjacentText() method inserts a the specified element into a specified position.
+container.insertAdjacentText( 'beforeend' , 'Hello i am text');
+
+
+//The insertAdjacentElement() method inserts a the specified element into a specified position.
+let p = document.querySelector('.pp');
+container.insertAdjacentElement("afterend", p);
+
 /* =========== Events In Javascript ============ */
 
 //Html is on index.html file on line number 22 to 
@@ -726,6 +748,42 @@ console.log(players);
 let abcd = { name: 'tanu' }
 let bcde = { ...abcd, age: 20 }
 console.log(bcde);
+
+//Class and inheritance in js 
+class myClass {
+  constructor (name) {
+      this.name = name;
+      console.log(this.name);
+  }
+
+  myMethod (){
+      console.log(`Hello i am a method in class welcome written by ${this.name}`);
+  }
+}
+const myClassObj = new myClass('tanu');
+myClassObj.myMethod();
+
+//inheritance 
+class A {
+  constructor (iAm) {
+    console.log(`I am ${iAm} Constructor`);
+  }
+  aMethod (what) {
+    console.log(`A for ${what}`)
+  }
+}
+class B extends A{
+  constructor(iAm){
+    super('Parents');
+    console.log(`I am ${iAm} Constructor`);
+  }
+  bMethod (what) {
+    console.log(`B for ${what}`)
+  }
+}
+const multipleClasses = new B('child');
+multipleClasses.aMethod('Apple');
+multipleClasses.bMethod('Boy');
 
 /* =========== EcmaScript => ES5 To ES11 ============ */
 
