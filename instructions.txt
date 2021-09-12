@@ -773,10 +773,10 @@
             syntax
             targetElement.insertAdjacentElement(position, element);
             Legal position values are:
-            1) "afterbegin"
-            2) "afterend"
-            3) "beforebegin"
-            4) "beforeend"
+            1) "afterbegin"  => Just inside the element , before its first child . 
+            2) "afterend"    => After The Element itself
+            3) "beforebegin" => Before THe element itself. 
+            4) "beforeend"   => just inside the element , after its last child. 
 
             let container = document.querySelector('.container');
 
