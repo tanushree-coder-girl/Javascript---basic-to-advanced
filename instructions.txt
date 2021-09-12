@@ -1171,10 +1171,9 @@
     4) CallBack Hell 
     5) Ajax call using XML http request 
     6) JSON 
-    7) Fetch API 
-    8) Promises 
-    9) Async - Await 
-    10) Error Handling in Js 
+    7) Promises / Fetch API 
+    8) Async - Await 
+    9) Error Handling in Js 
 
         1) Event Propagation 
             This made determines in which order the elements receive the event. 
@@ -1468,11 +1467,68 @@ Advanced JavaScript
                 //output is 
                  {title: 'THe Jungle book', author: 'Milky Man', Published_on: 'December'}
 
-        7) Fetch API 
-            
+        7) Fetch API / promises 
+            The Fetch API is a simple interface for fetching resources. Fetch allows us to make network request and handle responses easier than our old friend XMLHttpRequest(XHR). One of the main differences is that Fetch API uses Promises, which provides a way to avoid callbacks hell and boilerplate heavy code that XMLHttpRequest(XHR) provides.
 
+            Promise 
+            The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+            When working with Promises, we must be aware of what it’s current state. There are three states, Pending, Fulfilled and Rejected.
 
+            fetch ('url', setHeaders)
+            .then((response) => response.json())
+            .then((data)=>{
+                console.log(data)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        
+        8) Async - Await 
+            let asyncFunction = async () => {
+                try {
+                    const seHeaders = {
+                        headers : {
+                            Accept : 'application/json'
+                        }
+                    }
 
+                let response = await fetch('https://restcountries.eu/rest/v2/name/brazil', seHeaders);
+                let [data] = await response.json();
+                //console.log(data);
+                console.log(data.capital);
+                } 
+                catch (err) {
+                    console.log(err);
+                }
+            }
+            asyncFunction();
 
+        9) Error Handling in Js
+            The try statement allows you to define a block of code to be tested for errors while it is being executed.
+            The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+            The JavaScript statements try and catch come in pairs:
+
+            Syntax : 
+
+            try {
+                Block of code to try
+            }
+            catch(err) {
+                Block of code to handle errors
+            } 
+
+            for example => 
+            //In this example we misspelled "alert" as "adddlert" to deliberately produce an error:
+                try {
+                    adddlert("Welcome guest!");
+                }
+                catch(err) {
+                    alert(err);
+                    alert(err.message);
+                }
+
+     Reference https://www.w3schools.com/js/
+     Official link of javascript documentation 
+     https://www.javascript.com/
 
 ---------------------------------------------------End--------------------------------------------------------------
