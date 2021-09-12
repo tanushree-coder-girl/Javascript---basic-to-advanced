@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated -thermometer </title>
+
+    <!---font awesome icons link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!---font awesome icons cheatseat-->
+    <!-- https://fontawesome.com/v4.7/cheatsheet/ -->
+
+    <!-- Google Fonts - Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(127, 170, 199);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            padding: 1rem;
+        }
+
+        h1 #temp {
+            font-size: 5rem;
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1> I am a Thermometer <span id="temp" class="fa"> </span></h1>
+    </div>
+
+    <script>
+        const tempLoad = () => {
+            let temp = document.getElementById('temp');
+            temp.innerHTML = "&#xf2cb";
+
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2ca";
+                temp.style.color = "#f8b627"
+            }, 1000);
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2c9";
+            }, 2000);
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2c8";
+            }, 3000);
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2c7";
+                temp.style.color = "#d63031"
+            }, 4000);
+        }
+        tempLoad();
+        setInterval(tempLoad, 5000);
+    </script>
+</body>
+
+</html>

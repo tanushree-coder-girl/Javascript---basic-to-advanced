@@ -1531,4 +1531,6 @@ Advanced JavaScript
      Official link of javascript documentation 
      https://www.javascript.com/
 
+    projects reference by thapa technical youtube channel
+
 ---------------------------------------------------End--------------------------------------------------------------
