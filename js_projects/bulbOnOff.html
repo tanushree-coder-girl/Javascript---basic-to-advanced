@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulb - On - Off</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .main-heading{
+            background-color: teal;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .main-heading h1{
+            padding: 1rem;
+        }
+        .main-heading img{
+            height: 200px;
+            width: 200px;
+        }
+        .main-heading button{
+            padding: 1rem;
+            margin: 1rem;
+            outline: none;
+            border: none;
+            color: #fff;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-heading">
+        <h1>Can you turn the light on or off</h1>
+        <img src="images/of.png" id="bulbImage" alt="bulb">
+        <div class="buttons">
+            <button onclick="document.getElementById('bulbImage').src = 'images/on.png'"> Turn On The light</button>
+            <button onclick="document.getElementById('bulbImage').src = 'images/of.png'"> Turn On The light</button>
+        </div>
+    </div>
+</body>
+</html>
