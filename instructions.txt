@@ -537,6 +537,7 @@
     5. Replacing String Content
     6. Extracting String Characters 
     7. Other Useful Methods 
+    8. Ways to convert string in numbers 
 
     1. Escape Character
         let writer = "poem is written by \"mr shk\" ";
@@ -593,6 +594,22 @@
         console.log(writer.trim());     //remove white spaces
         console.log(writer.split(" ")); //converting an string into an array use split as , | - " " etc
  
+    8. Ways To Convert String in Number
+        let stringNum = '10';
+        console.log(typeof(numberIs));    //string 
+
+        //1,way to convert string in num : unary plus operator 
+        let stringToNum = +stringNum;
+        console.log(typeof(stringToNum));
+
+        //2, way to convert string in num is : Number constructor
+        let stringToNum2 = Number(stringNum);
+        console.log(typeof(stringToNum2));
+
+        //3. way to convert string in num is : parseFloat Function
+        let stringToNum3 = parseFloat(stringNum);
+        console.log(typeof(stringToNum3));
+
 13. Date And Time in JavaScript
     1. Date Metohd (get and set)
     2. Time Method (get and set)

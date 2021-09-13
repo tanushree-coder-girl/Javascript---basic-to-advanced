@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increament Counters</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #111010;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            color: #fff;
+        }
+        .counter-container{
+            margin: 1rem;
+        }
+        .counter{
+            font-size: 4.5rem;
+        }
+        span{
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width : 768px) {
+            body{
+                flex-direction: column;
+            }   
+        }
+    </style>
+</head>
+<body>
+    <!-- main counter container-->
+    <div class="counter-container">
+        <i class="fas fa-mug-hot fa-3x"></i>
+        <div class="counter" data-target="4000"></div>
+        <span>Projects completed</span>
+    </div>
+
+    <!-- main counter container-->
+    <div class="counter-container">
+        <i class="fas fa-users fa-3x"></i>
+        <div class="counter" data-target="15000"></div>
+        <span>Our Happy Clients</span>
+    </div>
+
+    <!-- main counter container-->
+    <div class="counter-container">
+        <i class="fas fa-tasks fa-3x"></i>
+        <div class="counter" data-target="500"></div>
+        <span>OnGoing Projects</span>
+    </div>
+
+    <script>
+        let counters = document.querySelectorAll('.counter');
+       // console.log(counters);
+        counters.forEach((counter)=>{
+            counter.innerHTML = '0';
+            let updateCounter = () => {
+                const targetCounter = +counter.getAttribute('data-target');
+                //console.log(typeof(targetCounter));
+                const startingCount = Number(counter.innerHTML);
+                //console.log(typeof(startingCount));
+                const incr = targetCounter / 100;
+               // console.log(incr);
+                if(startingCount < targetCounter){
+                    counter.innerHTML = `${Math.round(startingCount + incr)}`;
+                    setTimeout( updateCounter, 10);
+                }else{
+                    counter.innerHTML = targetCounter;
+                }
+            }
+            updateCounter();
+        });
+    </script>
+</body>
+</html>

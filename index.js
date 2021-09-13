@@ -437,6 +437,22 @@ console.log(writer.concat("yeee"));
 console.log(writer.trim()); //remove white spaces
 console.log(writer.split(" ")); //converting an string into an array use split with , | - " " etc
 
+//Ways to convert string in number
+let stringNum = '10';
+console.log(typeof(numberIs));    //string 
+
+//1,way to convert string in num : unary plus operator 
+let stringToNum = +stringNum;
+console.log(typeof(stringToNum));
+
+//2, way to convert string in num is : Number constructor
+let stringToNum2 = Number(stringNum);
+console.log(typeof(stringToNum2));
+
+//3. way to convert string in num is : parseFloat Function
+let stringToNum3 = parseFloat(stringNum);
+console.log(typeof(stringToNum3));
+
 /* =========== Date and Time in Javascript ============ */
 
 let date = new Date();
