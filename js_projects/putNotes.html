@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Put Notes</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Ubuntu", sans-serif;
+        }
+        body{
+            background-color: rgb(241, 238, 238);
+        }
+        /* Header */
+        header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 3.5rem;
+            background-color: rgb(5, 66, 66);
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            z-index: 666;
+        }
+        header h1{
+            font-size: 1.6rem;
+        }
+        header h1 i{
+           margin-right: 1rem;
+        }
+        section{
+            margin-top: 4rem;
+            padding: 0 2rem;
+        }
+
+        /* Btn Hover Animation effect */
+        .add-btn-div{
+           display: flex;
+           justify-content: flex-end;
+        }
+        .add_btn{
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 2rem;
+            outline: none;
+            border: none;
+            background-color: rgb(5, 66, 66);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            color: #fafafa;
+        }
+        .add_btn:hover{
+            width: 10rem;
+        }
+        .add_btn span{
+            display: none;
+            margin-left: .5rem;
+            font-size: .9rem;
+        }
+        .add_btn:hover span{
+            display: block;
+        }
+        .add_btn .addIcon{
+            width: 2.8rem;
+            height: 2.8rem;
+            line-height: 2.8rem;
+            font-size: 1.2rem;
+        }
+        /* Btn Hover Animation effect */
+
+        /* note */
+        .note{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 1rem;
+            background-color: #fff;
+            width: 18rem;
+            height: 10rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: .5rem;
+            display: inline-block;
+            margin: .5rem;
+        }
+        .operation{
+            position: relative;
+            width: 18rem; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .note .operation button{
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            height: 35px;
+            width: 35px;
+            color: white;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .note .operation .edit{
+            background-color: blue;
+            position: absolute;
+            right: 55px;
+            top: 5px;
+        }
+        .note .operation .edit:hover{
+            background-color: rgb(15, 15, 134);
+        }
+        .note .operation .delete{
+            background-color: red;
+            position: absolute;
+            right: 17px;
+            top: 5px;
+        }
+        .note .operation .delete:hover{
+            background-color: rgb(66, 8, 8);
+        }
+        textarea{
+            border: none;
+            outline: none;
+            resize: none;
+            font-size: 1rem;
+            height: 50%;
+            resize: none;
+            width: 18rem;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 10rem;
+            padding: 2.5rem;
+        }
+        .main{
+            font-size: 1rem;
+            height: 50%;
+            width: 18rem;
+            height: 10rem;
+            padding: 2.5rem;
+            margin: 1rem 0;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1> <i class="fas fa-sticky-note"></i> Put Notes</h1>
+    </header>
+
+    <!-- Buttons -->
+    <section>
+        <div class="add-btn-div">
+            <button class="add_btn" class="add" id="add">
+                <i class="fas fa-arrow-right addIcon"></i>
+                <span class="addNote">Add Note</span>
+            </button>
+        </div>
+    </section>
+  
+
+    <script>
+        const btn = document.querySelector('#add');
+
+        //set local storage data here 
+        const updateLSData = () => {
+            const textAreaData = document.querySelectorAll('textarea');
+            const notes = [];
+            textAreaData.forEach((userNote)=>{
+                return notes.push(userNote.value);
+            });
+            console.log(notes);
+            localStorage.setItem('notes' , JSON.stringify(notes));
+        }
+
+
+        //Add note 
+        const addNewNote = (text = "") => {
+            const note = document.createElement('DIV');
+            note.classList.add('note');
+
+            const htmlData = `
+            <div class="operation">
+                <button class="edit"> <i class="fas fa-edit"></i> </button>
+                <button class="delete"> <i class="fas fa-trash-alt"></i></button>
+                <div>
+                    <div class="main ${text ? "" : "hidden"}"></div>
+                    <textarea class=" ${text ? "hidden" : ""}"></textarea>
+                </div>
+              
+            </div>
+            `;
+
+            note.insertAdjacentHTML('afterbegin', htmlData);
+            //console.log(note);
+
+            //getting the references 
+            const editBtn = note.querySelector('.edit');
+            const delBtn = note.querySelector('.delete');
+            const mainDiv = note.querySelector('.main');
+            const textarea = note.querySelector('textarea');
+
+            //delete the note 
+            delBtn.addEventListener('click', ()=>{
+                note.remove();
+                 //update localstorage data
+                 updateLSData();
+            });
+
+            //toogle using edit btn
+            textarea.value = text;
+            mainDiv.innerHTML = text;
+
+            editBtn.addEventListener('click', ()=>{
+                mainDiv.classList.toggle('hidden');
+                textarea.classList.toggle('hidden');
+            });
+
+            textarea.addEventListener('change', (event)=>{
+                const value = event.target.value;
+                //console.log(value);
+                mainDiv.innerHTML = value;
+
+                //update localstorage data
+                updateLSData();
+            });
+
+            document.body.appendChild(note);
+            //it appends a node as the last child of a node
+        }
+
+        //Getting Data from localstorage 
+        let getNotes = JSON.parse(localStorage.getItem('notes'));
+        //console.log(getNotes);
+        if(getNotes){
+            getNotes.forEach((note)=> addNewNote(note) );
+        }
+        
+        btn.addEventListener('click', () => addNewNote());
+
+    </script>
+</body>
+
+</html>
